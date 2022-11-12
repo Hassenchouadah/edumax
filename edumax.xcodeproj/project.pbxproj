@@ -1,0 +1,708 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		7D6F818C291FF2A60086600C /* OneTimeCodeTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6F818B291FF2A60086600C /* OneTimeCodeTextField.swift */; };
+		7D6F818E291FF57B0086600C /* VerificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6F818D291FF57B0086600C /* VerificationController.swift */; };
+		7D8E0EC1291C312C00799291 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D8E0EC0291C312C00799291 /* AppDelegate.swift */; };
+		7D8E0EC3291C312C00799291 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D8E0EC2291C312C00799291 /* SceneDelegate.swift */; };
+		7D8E0EC5291C312C00799291 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D8E0EC4291C312C00799291 /* LoginController.swift */; };
+		7D8E0EC8291C312C00799291 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D8E0EC6291C312C00799291 /* Main.storyboard */; };
+		7D8E0ECB291C312C00799291 /* edumax.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7D8E0EC9291C312C00799291 /* edumax.xcdatamodeld */; };
+		7D8E0ECD291C312D00799291 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7D8E0ECC291C312D00799291 /* Assets.xcassets */; };
+		7D8E0ED0291C312D00799291 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D8E0ECE291C312D00799291 /* LaunchScreen.storyboard */; };
+		7D8E0EDB291C312D00799291 /* edumaxTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D8E0EDA291C312D00799291 /* edumaxTests.swift */; };
+		7D8E0EE5291C312D00799291 /* edumaxUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D8E0EE4291C312D00799291 /* edumaxUITests.swift */; };
+		7D8E0EE7291C312D00799291 /* edumaxUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D8E0EE6291C312D00799291 /* edumaxUITestsLaunchTests.swift */; };
+		7D8E0EF9291C37FD00799291 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D8E0EF8291C37FD00799291 /* LoginViewModel.swift */; };
+		7D8E0EFB291C385800799291 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D8E0EFA291C385800799291 /* AuthService.swift */; };
+		7DC486F2291FE63A00D40EA2 /* RegisterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DC486F1291FE63A00D40EA2 /* RegisterController.swift */; };
+		7DC486F4291FEB2B00D40EA2 /* BackendResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DC486F3291FEB2B00D40EA2 /* BackendResponse.swift */; };
+		7DC65E38291C3A2C003973C8 /* AuthServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DC65E37291C3A2C003973C8 /* AuthServiceProtocol.swift */; };
+		7DC65E3A291C3B46003973C8 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DC65E39291C3B46003973C8 /* UserModel.swift */; };
+		7DC65E3C291C4066003973C8 /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DC65E3B291C4066003973C8 /* LoginResponse.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		7D8E0ED7291C312D00799291 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7D8E0EB5291C312C00799291 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7D8E0EBC291C312C00799291;
+			remoteInfo = edumax;
+		};
+		7D8E0EE1291C312D00799291 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7D8E0EB5291C312C00799291 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7D8E0EBC291C312C00799291;
+			remoteInfo = edumax;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		7D6F818B291FF2A60086600C /* OneTimeCodeTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneTimeCodeTextField.swift; sourceTree = "<group>"; };
+		7D6F818D291FF57B0086600C /* VerificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationController.swift; sourceTree = "<group>"; };
+		7D8E0EBD291C312C00799291 /* edumax.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = edumax.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7D8E0EC0291C312C00799291 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		7D8E0EC2291C312C00799291 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		7D8E0EC4291C312C00799291 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
+		7D8E0EC7291C312C00799291 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		7D8E0ECA291C312C00799291 /* edumax.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = edumax.xcdatamodel; sourceTree = "<group>"; };
+		7D8E0ECC291C312D00799291 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		7D8E0ECF291C312D00799291 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		7D8E0ED1291C312D00799291 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7D8E0ED6291C312D00799291 /* edumaxTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = edumaxTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7D8E0EDA291C312D00799291 /* edumaxTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = edumaxTests.swift; sourceTree = "<group>"; };
+		7D8E0EE0291C312D00799291 /* edumaxUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = edumaxUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7D8E0EE4291C312D00799291 /* edumaxUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = edumaxUITests.swift; sourceTree = "<group>"; };
+		7D8E0EE6291C312D00799291 /* edumaxUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = edumaxUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		7D8E0EF8291C37FD00799291 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		7D8E0EFA291C385800799291 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		7DC486F1291FE63A00D40EA2 /* RegisterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterController.swift; sourceTree = "<group>"; };
+		7DC486F3291FEB2B00D40EA2 /* BackendResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackendResponse.swift; sourceTree = "<group>"; };
+		7DC65E37291C3A2C003973C8 /* AuthServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthServiceProtocol.swift; sourceTree = "<group>"; };
+		7DC65E39291C3B46003973C8 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		7DC65E3B291C4066003973C8 /* LoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		7D8E0EBA291C312C00799291 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7D8E0ED3291C312D00799291 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7D8E0EDD291C312D00799291 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		7D8E0EB4291C312C00799291 = {
+			isa = PBXGroup;
+			children = (
+				7D8E0EBF291C312C00799291 /* edumax */,
+				7D8E0ED9291C312D00799291 /* edumaxTests */,
+				7D8E0EE3291C312D00799291 /* edumaxUITests */,
+				7D8E0EBE291C312C00799291 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		7D8E0EBE291C312C00799291 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7D8E0EBD291C312C00799291 /* edumax.app */,
+				7D8E0ED6291C312D00799291 /* edumaxTests.xctest */,
+				7D8E0EE0291C312D00799291 /* edumaxUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7D8E0EBF291C312C00799291 /* edumax */ = {
+			isa = PBXGroup;
+			children = (
+				7DC65E36291C3A1B003973C8 /* Protocols */,
+				7D8E0EF7291C371600799291 /* Components */,
+				7D8E0EF6291C36FC00799291 /* Services */,
+				7D8E0EF5291C36EB00799291 /* Viewmodels */,
+				7D8E0EF4291C36E100799291 /* Models */,
+				7D8E0EF3291C36CC00799291 /* Controllers */,
+				7D8E0EC0291C312C00799291 /* AppDelegate.swift */,
+				7D8E0EC2291C312C00799291 /* SceneDelegate.swift */,
+				7D8E0EC6291C312C00799291 /* Main.storyboard */,
+				7D8E0ECC291C312D00799291 /* Assets.xcassets */,
+				7D8E0ECE291C312D00799291 /* LaunchScreen.storyboard */,
+				7D8E0ED1291C312D00799291 /* Info.plist */,
+				7D8E0EC9291C312C00799291 /* edumax.xcdatamodeld */,
+			);
+			path = edumax;
+			sourceTree = "<group>";
+		};
+		7D8E0ED9291C312D00799291 /* edumaxTests */ = {
+			isa = PBXGroup;
+			children = (
+				7D8E0EDA291C312D00799291 /* edumaxTests.swift */,
+			);
+			path = edumaxTests;
+			sourceTree = "<group>";
+		};
+		7D8E0EE3291C312D00799291 /* edumaxUITests */ = {
+			isa = PBXGroup;
+			children = (
+				7D8E0EE4291C312D00799291 /* edumaxUITests.swift */,
+				7D8E0EE6291C312D00799291 /* edumaxUITestsLaunchTests.swift */,
+			);
+			path = edumaxUITests;
+			sourceTree = "<group>";
+		};
+		7D8E0EF3291C36CC00799291 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				7D8E0EC4291C312C00799291 /* LoginController.swift */,
+				7DC486F1291FE63A00D40EA2 /* RegisterController.swift */,
+				7D6F818D291FF57B0086600C /* VerificationController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		7D8E0EF4291C36E100799291 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				7DC65E39291C3B46003973C8 /* UserModel.swift */,
+				7DC65E3B291C4066003973C8 /* LoginResponse.swift */,
+				7DC486F3291FEB2B00D40EA2 /* BackendResponse.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		7D8E0EF5291C36EB00799291 /* Viewmodels */ = {
+			isa = PBXGroup;
+			children = (
+				7D8E0EF8291C37FD00799291 /* LoginViewModel.swift */,
+			);
+			path = Viewmodels;
+			sourceTree = "<group>";
+		};
+		7D8E0EF6291C36FC00799291 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				7D8E0EFA291C385800799291 /* AuthService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		7D8E0EF7291C371600799291 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				7D6F818B291FF2A60086600C /* OneTimeCodeTextField.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		7DC65E36291C3A1B003973C8 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				7DC65E37291C3A2C003973C8 /* AuthServiceProtocol.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		7D8E0EBC291C312C00799291 /* edumax */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7D8E0EEA291C312D00799291 /* Build configuration list for PBXNativeTarget "edumax" */;
+			buildPhases = (
+				7D8E0EB9291C312C00799291 /* Sources */,
+				7D8E0EBA291C312C00799291 /* Frameworks */,
+				7D8E0EBB291C312C00799291 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = edumax;
+			productName = edumax;
+			productReference = 7D8E0EBD291C312C00799291 /* edumax.app */;
+			productType = "com.apple.product-type.application";
+		};
+		7D8E0ED5291C312D00799291 /* edumaxTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7D8E0EED291C312D00799291 /* Build configuration list for PBXNativeTarget "edumaxTests" */;
+			buildPhases = (
+				7D8E0ED2291C312D00799291 /* Sources */,
+				7D8E0ED3291C312D00799291 /* Frameworks */,
+				7D8E0ED4291C312D00799291 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7D8E0ED8291C312D00799291 /* PBXTargetDependency */,
+			);
+			name = edumaxTests;
+			productName = edumaxTests;
+			productReference = 7D8E0ED6291C312D00799291 /* edumaxTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		7D8E0EDF291C312D00799291 /* edumaxUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7D8E0EF0291C312D00799291 /* Build configuration list for PBXNativeTarget "edumaxUITests" */;
+			buildPhases = (
+				7D8E0EDC291C312D00799291 /* Sources */,
+				7D8E0EDD291C312D00799291 /* Frameworks */,
+				7D8E0EDE291C312D00799291 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7D8E0EE2291C312D00799291 /* PBXTargetDependency */,
+			);
+			name = edumaxUITests;
+			productName = edumaxUITests;
+			productReference = 7D8E0EE0291C312D00799291 /* edumaxUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		7D8E0EB5291C312C00799291 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1400;
+				LastUpgradeCheck = 1400;
+				TargetAttributes = {
+					7D8E0EBC291C312C00799291 = {
+						CreatedOnToolsVersion = 14.0.1;
+					};
+					7D8E0ED5291C312D00799291 = {
+						CreatedOnToolsVersion = 14.0.1;
+						TestTargetID = 7D8E0EBC291C312C00799291;
+					};
+					7D8E0EDF291C312D00799291 = {
+						CreatedOnToolsVersion = 14.0.1;
+						TestTargetID = 7D8E0EBC291C312C00799291;
+					};
+				};
+			};
+			buildConfigurationList = 7D8E0EB8291C312C00799291 /* Build configuration list for PBXProject "edumax" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 7D8E0EB4291C312C00799291;
+			productRefGroup = 7D8E0EBE291C312C00799291 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				7D8E0EBC291C312C00799291 /* edumax */,
+				7D8E0ED5291C312D00799291 /* edumaxTests */,
+				7D8E0EDF291C312D00799291 /* edumaxUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		7D8E0EBB291C312C00799291 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7D8E0ED0291C312D00799291 /* LaunchScreen.storyboard in Resources */,
+				7D8E0ECD291C312D00799291 /* Assets.xcassets in Resources */,
+				7D8E0EC8291C312C00799291 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7D8E0ED4291C312D00799291 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7D8E0EDE291C312D00799291 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		7D8E0EB9291C312C00799291 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7DC486F2291FE63A00D40EA2 /* RegisterController.swift in Sources */,
+				7D8E0EC5291C312C00799291 /* LoginController.swift in Sources */,
+				7DC65E38291C3A2C003973C8 /* AuthServiceProtocol.swift in Sources */,
+				7DC486F4291FEB2B00D40EA2 /* BackendResponse.swift in Sources */,
+				7D6F818C291FF2A60086600C /* OneTimeCodeTextField.swift in Sources */,
+				7DC65E3C291C4066003973C8 /* LoginResponse.swift in Sources */,
+				7DC65E3A291C3B46003973C8 /* UserModel.swift in Sources */,
+				7D6F818E291FF57B0086600C /* VerificationController.swift in Sources */,
+				7D8E0EC1291C312C00799291 /* AppDelegate.swift in Sources */,
+				7D8E0EC3291C312C00799291 /* SceneDelegate.swift in Sources */,
+				7D8E0EFB291C385800799291 /* AuthService.swift in Sources */,
+				7D8E0EF9291C37FD00799291 /* LoginViewModel.swift in Sources */,
+				7D8E0ECB291C312C00799291 /* edumax.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7D8E0ED2291C312D00799291 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7D8E0EDB291C312D00799291 /* edumaxTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7D8E0EDC291C312D00799291 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7D8E0EE7291C312D00799291 /* edumaxUITestsLaunchTests.swift in Sources */,
+				7D8E0EE5291C312D00799291 /* edumaxUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		7D8E0ED8291C312D00799291 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7D8E0EBC291C312C00799291 /* edumax */;
+			targetProxy = 7D8E0ED7291C312D00799291 /* PBXContainerItemProxy */;
+		};
+		7D8E0EE2291C312D00799291 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7D8E0EBC291C312C00799291 /* edumax */;
+			targetProxy = 7D8E0EE1291C312D00799291 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		7D8E0EC6291C312C00799291 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7D8E0EC7291C312C00799291 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		7D8E0ECE291C312D00799291 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7D8E0ECF291C312D00799291 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		7D8E0EE8291C312D00799291 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		7D8E0EE9291C312D00799291 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		7D8E0EEB291C312D00799291 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = B8DG42QQ5V;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = edumax/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = esprit.edumax;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		7D8E0EEC291C312D00799291 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = B8DG42QQ5V;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = edumax/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = esprit.edumax;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		7D8E0EEE291C312D00799291 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = B8DG42QQ5V;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = esprit.edumaxTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/edumax.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/edumax";
+			};
+			name = Debug;
+		};
+		7D8E0EEF291C312D00799291 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = B8DG42QQ5V;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = esprit.edumaxTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/edumax.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/edumax";
+			};
+			name = Release;
+		};
+		7D8E0EF1291C312D00799291 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = B8DG42QQ5V;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = esprit.edumaxUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = edumax;
+			};
+			name = Debug;
+		};
+		7D8E0EF2291C312D00799291 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = B8DG42QQ5V;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = esprit.edumaxUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = edumax;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		7D8E0EB8291C312C00799291 /* Build configuration list for PBXProject "edumax" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7D8E0EE8291C312D00799291 /* Debug */,
+				7D8E0EE9291C312D00799291 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7D8E0EEA291C312D00799291 /* Build configuration list for PBXNativeTarget "edumax" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7D8E0EEB291C312D00799291 /* Debug */,
+				7D8E0EEC291C312D00799291 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7D8E0EED291C312D00799291 /* Build configuration list for PBXNativeTarget "edumaxTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7D8E0EEE291C312D00799291 /* Debug */,
+				7D8E0EEF291C312D00799291 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7D8E0EF0291C312D00799291 /* Build configuration list for PBXNativeTarget "edumaxUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7D8E0EF1291C312D00799291 /* Debug */,
+				7D8E0EF2291C312D00799291 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		7D8E0EC9291C312C00799291 /* edumax.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				7D8E0ECA291C312C00799291 /* edumax.xcdatamodel */,
+			);
+			currentVersion = 7D8E0ECA291C312C00799291 /* edumax.xcdatamodel */;
+			path = edumax.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 7D8E0EB5291C312C00799291 /* Project object */;
+}
