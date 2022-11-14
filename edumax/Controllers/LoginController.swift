@@ -53,6 +53,8 @@ class LoginController: UIViewController {
         authService.login(email: emailInput.text!, password: passwordInput.text!, onSuccess: {[weak self] (response) in
             DispatchQueue.main.async {
                 if(response.status==200){
+                    
+                    
                     if response.user?.verified==0{
                         self!.performSegue(withIdentifier: "loginToVerify", sender: response.user!)
                     }else{

@@ -30,7 +30,7 @@ class VerificationController: UIViewController {
         let randomPattern = Int.random(in: 100000...999999)
         generatedCode = randomPattern
         print(randomPattern)
-        /*authService.sendVerificationCode(phone: phone, code: randomPattern, onSuccess: {[weak self] (response) in
+        authService.sendVerificationCode(phone: phone, code: randomPattern, onSuccess: {[weak self] (response) in
             DispatchQueue.main.async {
                 if(response.status==200){
                     print("code sent")
@@ -42,7 +42,7 @@ class VerificationController: UIViewController {
             DispatchQueue.main.async {
                 self?.showAlertView(from: self, message: error.localizedDescription)
             }
-        })*/
+        })
         
         //setup loader
         loadingIndicator.alpha = 0
