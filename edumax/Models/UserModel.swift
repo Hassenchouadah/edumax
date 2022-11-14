@@ -13,4 +13,7 @@ struct UserModel: Codable {
     let email: String
     let password: String
     let phone: String
+    let avatar:String
+    let verified:Int
+    let accessToken:String?
 }

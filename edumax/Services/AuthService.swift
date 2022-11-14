@@ -64,9 +64,9 @@ final class AuthService: AuthServiceProtocol {
         }.resume()
     }
     
-    func sendVerificationCode(email:String,code:Int,onSuccess:@escaping (BackendResponse) -> Void, onError: @escaping (Error) -> Void) -> Void {
+    func sendVerificationCode(phone:String,code:Int,onSuccess:@escaping (BackendResponse) -> Void, onError: @escaping (Error) -> Void) -> Void {
         let parameters = [
-            "email" : email,
+            "phone" : phone,
             "verificationCode" : String(code)
         ]
         guard let url = URL(string: baseURL+"/api/auth/sendVerificationCode") else { return }
@@ -92,6 +92,41 @@ final class AuthService: AuthServiceProtocol {
             do {
                 let loginResponse = try decoder.decode(BackendResponse.self, from: data)
                 onSuccess(loginResponse)
+                
+            } catch let error {
+                print("error: ", error)
+            }
+        }.resume()
+
+    }
+    
+    func verifyAccount(email:String,onSuccess:@escaping (UserModel) -> Void, onError: @escaping (Error) -> Void) -> Void {
+        let parameters = [
+            "email" : email
+        ]
+        guard let url = URL(string: baseURL+"/api/auth/verifyAccount") else { return }
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        guard let httpBody = try? JSONSerialization.data(withJSONObject: parameters, options: []) else { return }
+        request.httpBody = httpBody
+        URLSession.shared.dataTask(with: request) { (data,response,error) in
+            if let error = error {
+                onError(error)
+                return
+            }
+            
+            let decoder = JSONDecoder()
+            decoder.dateDecodingStrategy = .iso8601
+            
+            guard let data = data else {
+                onError(NetworkError.invalidResponse)
+                return
+            }
+            
+            do {
+                let userResponse = try decoder.decode(UserModel.self, from: data)
+                onSuccess(userResponse)
                 
             } catch let error {
                 print("error: ", error)

@@ -9,6 +9,7 @@ import UIKit
 
 class VerificationController: UIViewController {
     
+    var phone:String = ""
     var email:String = ""
     
     var generatedCode:Int=0
@@ -16,6 +17,7 @@ class VerificationController: UIViewController {
     @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
     @IBOutlet weak var codeField: OneTimeCodeTextField!
     var authService = AuthService()
+    var userStorage = UserStorage()
     
     func showAlertView(from vc: UIViewController?,message:String) {
         let alertController = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
@@ -25,10 +27,10 @@ class VerificationController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         let randomPattern = Int.random(in: 100000...999999)
         generatedCode = randomPattern
-        authService.sendVerificationCode(email: email, code: randomPattern, onSuccess: {[weak self] (response) in
+        print(randomPattern)
+        /*authService.sendVerificationCode(phone: phone, code: randomPattern, onSuccess: {[weak self] (response) in
             DispatchQueue.main.async {
                 if(response.status==200){
                     print("code sent")
@@ -40,7 +42,7 @@ class VerificationController: UIViewController {
             DispatchQueue.main.async {
                 self?.showAlertView(from: self, message: error.localizedDescription)
             }
-        })
+        })*/
         
         //setup loader
         loadingIndicator.alpha = 0
@@ -52,21 +54,31 @@ class VerificationController: UIViewController {
         codeField.configure()
         
         codeField.didEnterLastDigit = { [weak self] code in
-            print(code) //typed code
+            
             self?.loadingIndicator.alpha = 1
             self?.loadingIndicator.startAnimating()
             
             if code==String(self!.generatedCode) {
-                //self!.verifyAccount()
-                print("code shih")
+                print("correct code")
+                self!.authService.verifyAccount(
+                    email: self!.email,
+                    onSuccess: {[weak self] (response) in
+                        DispatchQueue.main.async {
+                            self?.userStorage.save(user: response)
+                            self?.performSegue(withIdentifier: "verifyToHome", sender: "")
+                        }
+                    }, onError: {[weak self] (error) in
+                        DispatchQueue.main.async {
+                            self?.showAlertView(from: self, message: error.localizedDescription)
+                        }
+                    })
             }else{
-                print("code ghalet")
                 self!.loadingIndicator.stopAnimating()
                 let alert = UIAlertController(title: "Wrong code", message: "Wrong verification code ,please check your email", preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
                 self!.present(alert, animated: true)
             }
-
+            
             
         }
         // Do any additional setup after loading the view.

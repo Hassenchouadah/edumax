@@ -32,7 +32,8 @@ class RegisterController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "registerToVerify" {
             let destination = segue.destination as! VerificationController
-            destination.email = self.emailInput.text!
+            destination.phone = self.phoneInput.text!
+            destination.email=self.emailInput.text!
         }
     }
     
@@ -54,8 +55,13 @@ class RegisterController: UIViewController {
             return;
         }
         
+        if(confirmPasswordInput.text! != passwordInput.text!){
+            showAlertView(from: self, message: "password dont match")
+            return;
+        }
+        
         authService.register(
-            user: UserModel(_id: "", email: emailInput.text!, password: passwordInput.text!, phone: phoneInput.text!),
+            user: UserModel(_id: "", email: emailInput.text!, password: passwordInput.text!, phone: phoneInput.text!,avatar: "",verified: 0,accessToken: ""),
             onSuccess: {[weak self] (response) in
                 DispatchQueue.main.async {
                     if(response.status==200){

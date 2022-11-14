@@ -15,6 +15,7 @@ class LoginController: UIViewController {
     
     //    var viewModel = LoginViewModel()
     var authService = AuthService()
+    var userStorage = UserStorage()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +30,15 @@ class LoginController: UIViewController {
     }
     
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "loginToVerify" {
+            let destination = segue.destination as! VerificationController
+            let user = sender as! UserModel
+            destination.phone = user.phone
+            destination.email=user.email
+        }
+    }
+    
     @IBAction func LoginAction(_ sender: UIButton) {
         
         //viewModel.LoginRequest(email: emailInput.text!, password: passwordInput.text!)
@@ -39,11 +49,17 @@ class LoginController: UIViewController {
         if(passwordInput.text?.count==0){
             showAlertView(from: self, message: "password is required")
         }
-
+        
         authService.login(email: emailInput.text!, password: passwordInput.text!, onSuccess: {[weak self] (response) in
             DispatchQueue.main.async {
                 if(response.status==200){
-                    self?.showAlertView(from: self, message: "nidham")
+                    if response.user?.verified==0{
+                        self!.performSegue(withIdentifier: "loginToVerify", sender: response.user!)
+                    }else{
+                        self!.userStorage.save(user: response.user!)
+                        self!.performSegue(withIdentifier: "loginToHome", sender: "")
+                    }
+                    
                 }else{
                     self?.showAlertView(from: self, message: response.message)
                 }
