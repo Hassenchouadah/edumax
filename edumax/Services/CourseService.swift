@@ -1,5 +1,5 @@
 //
-//  PromotionService.swift
+//  CourseService.swift
 //  edumax
 //
 //  Created by user231981 on 11/15/22.
@@ -7,14 +7,15 @@
 
 import Foundation
 
-final class PromotionService {
+
+final class CourseService {
     private var baseURL: String="http://localhost:5001"
     private var userStorage = UserStorage()
     
-    func getPromotions(onSuccess: @escaping ([PromotionModel]) -> Void, onError: @escaping (Error) -> Void) {
+    func getCourses(onSuccess: @escaping ([CourseModel]) -> Void, onError: @escaping (Error) -> Void) {
         
         let connectedUser = userStorage.getConnectedUser()
-        guard let url = URL(string: baseURL+"/api/promotions/") else { return }
+        guard let url = URL(string: baseURL+"/api/courses/") else { return }
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -37,7 +38,7 @@ final class PromotionService {
             }
             
             do {
-                let response = try decoder.decode([PromotionModel].self, from: data)
+                let response = try decoder.decode([CourseModel].self, from: data)
                 onSuccess(response)
                 
             } catch let error {

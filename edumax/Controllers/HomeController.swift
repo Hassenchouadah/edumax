@@ -13,12 +13,15 @@ class HomeController: UIViewController {
     var categories = [CategoryModel]()
     var mentors = [MentorModel]()
     var promotions = [PromotionModel]()
+    var courses = [CourseModel]()
+    
 
     var selectedCategory = "";
     
     var mentorService = MentorService()
     var categoryService = CategoryService()
     var promotionService = PromotionService()
+    var courseService = CourseService()
     
     @IBOutlet weak var categoryView: UICollectionView! = {
         let layout = UICollectionViewFlowLayout()
@@ -113,6 +116,17 @@ class HomeController: UIViewController {
             }
         })
         
+        courseService.getCourses(onSuccess: {[weak self] (response) in
+            DispatchQueue.main.async {
+                self!.courses = response
+                self!.coursesView.reloadData()
+            }
+        }, onError: {[weak self] (error) in
+            DispatchQueue.main.async {
+                self?.showAlertView(from: self, message: error.localizedDescription)
+            }
+        })
+        
         
         
         
@@ -125,9 +139,21 @@ class HomeController: UIViewController {
 
 
 extension HomeController :UICollectionViewDelegateFlowLayout, UICollectionViewDataSource{
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "HomeToCourseDetails"{
+            let destination = segue.destination as! CourseController
+            let course = sender as! CourseModel
+            destination.course = course
+        }
     
+    }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if collectionView==coursesView{
+            
+            performSegue(withIdentifier: "HomeToCourseDetails", sender: courses[indexPath.row])
+        }
         if collectionView==categoryView {
+            
             
             selectedCategory = categories[indexPath.row]._id
             self.categoryView.performBatchUpdates(
@@ -145,7 +171,7 @@ extension HomeController :UICollectionViewDelegateFlowLayout, UICollectionViewDa
         }else if collectionView == categoryView{
             return categories.count
         }else{
-            return 6
+            return courses.count
         }
     }
     
@@ -156,7 +182,7 @@ extension HomeController :UICollectionViewDelegateFlowLayout, UICollectionViewDa
         let backgroundView = contentView.viewWithTag(5) as! UIImageView
         
         //backgroundView.image = UIImage(named: "mesh-706.png")
-        backgroundView.load(url: URL(string: "http://localhost:5000\(promotions[indexPath.row].image)")!)
+        backgroundView.load(url: URL(string: "http://localhost:5001\(promotions[indexPath.row].image)")!)
 
         //backgroundView.backgroundColor = .blue
         
@@ -231,12 +257,12 @@ extension HomeController :UICollectionViewDelegateFlowLayout, UICollectionViewDa
         let coursePrice = contentView.viewWithTag(4) as! UILabel
         
         
-        courseImage.image = UIImage(named: "profile.jpeg")
+        courseImage.load(url: URL(string: "http://localhost:5001\(courses[indexPath.row].image)")!)
         courseImage.layer.cornerRadius = 12
         
-        courseTitle.text = "Design illustration"
-        courseDescription.text = "Design illustration 3D"
-        coursePrice.text = "45$"
+        courseTitle.text = courses[indexPath.row].title
+        courseDescription.text = courses[indexPath.row].description
+        coursePrice.text = courses[indexPath.row].price
         
         
         return cell

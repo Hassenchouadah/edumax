@@ -598,11 +598,28 @@ only valid for today</string>
                         <outlet property="categoryView" destination="y7B-mz-OUZ" id="1vc-Pv-cZ0"/>
                         <outlet property="coursesView" destination="PeQ-yD-bpp" id="X2H-D8-9ne"/>
                         <outlet property="mentorsView" destination="dea-Xu-adP" id="Q0f-Xj-Yjg"/>
+                        <segue destination="FwQ-80-FxO" kind="show" identifier="HomeToCourseDetails" id="NSH-Vh-YbJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MYt-js-dfi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2189.2307692307691" y="-314.21800947867297"/>
+        </scene>
+        <!--Course Controller-->
+        <scene sceneID="M6v-a3-yY5">
+            <objects>
+                <viewController id="FwQ-80-FxO" customClass="CourseController" customModule="edumax" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="mNL-0b-x4a">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="787"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="rCS-KE-rAo"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="ggP-6d-ugV"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bjS-wH-EUg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3006" y="-299"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="KVz-RL-uVK">

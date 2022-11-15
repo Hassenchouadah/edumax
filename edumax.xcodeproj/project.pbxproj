@@ -25,6 +25,9 @@
 		7D8E0EFB291C385800799291 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D8E0EFA291C385800799291 /* AuthService.swift */; };
 		7D907F202921D8CC0093337E /* UserStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D907F1F2921D8CC0093337E /* UserStorage.swift */; };
 		7D907F222921E67B0093337E /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D907F212921E67B0093337E /* SettingsController.swift */; };
+		7D9BFB51292429CA0055EA83 /* CourseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D9BFB50292429CA0055EA83 /* CourseModel.swift */; };
+		7D9BFB5329242A240055EA83 /* CourseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D9BFB5229242A240055EA83 /* CourseService.swift */; };
+		7D9BFB55292435700055EA83 /* CourseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D9BFB54292435700055EA83 /* CourseController.swift */; };
 		7DB397482922947E00E044E8 /* CategoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB397472922947E00E044E8 /* CategoryModel.swift */; };
 		7DB72B8A2922F4DC00AC028A /* MentorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB72B892922F4DC00AC028A /* MentorModel.swift */; };
 		7DB72B8C2922F52900AC028A /* MentorService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB72B8B2922F52900AC028A /* MentorService.swift */; };
@@ -78,6 +81,9 @@
 		7D8E0EFA291C385800799291 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		7D907F1F2921D8CC0093337E /* UserStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStorage.swift; sourceTree = "<group>"; };
 		7D907F212921E67B0093337E /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
+		7D9BFB50292429CA0055EA83 /* CourseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseModel.swift; sourceTree = "<group>"; };
+		7D9BFB5229242A240055EA83 /* CourseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseService.swift; sourceTree = "<group>"; };
+		7D9BFB54292435700055EA83 /* CourseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseController.swift; sourceTree = "<group>"; };
 		7DB397472922947E00E044E8 /* CategoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryModel.swift; sourceTree = "<group>"; };
 		7DB72B892922F4DC00AC028A /* MentorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MentorModel.swift; sourceTree = "<group>"; };
 		7DB72B8B2922F52900AC028A /* MentorService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MentorService.swift; sourceTree = "<group>"; };
@@ -183,6 +189,7 @@
 				7D907F212921E67B0093337E /* SettingsController.swift */,
 				7D3248AF292273770095B325 /* HomeController.swift */,
 				7D3248B1292273A30095B325 /* ProfileController.swift */,
+				7D9BFB54292435700055EA83 /* CourseController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -196,6 +203,7 @@
 				7DB397472922947E00E044E8 /* CategoryModel.swift */,
 				7DB72B892922F4DC00AC028A /* MentorModel.swift */,
 				7DB72B8F29230B7A00AC028A /* PromotionModel.swift */,
+				7D9BFB50292429CA0055EA83 /* CourseModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -215,6 +223,7 @@
 				7DB72B8B2922F52900AC028A /* MentorService.swift */,
 				7DB72B8D292302A000AC028A /* CategoryService.swift */,
 				7DB72B9129230BBF00AC028A /* PromotionService.swift */,
+				7D9BFB5229242A240055EA83 /* CourseService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -380,12 +389,15 @@
 				7DB72B8E292302A000AC028A /* CategoryService.swift in Sources */,
 				7DC486F4291FEB2B00D40EA2 /* BackendResponse.swift in Sources */,
 				7D907F202921D8CC0093337E /* UserStorage.swift in Sources */,
+				7D9BFB51292429CA0055EA83 /* CourseModel.swift in Sources */,
 				7D6F818C291FF2A60086600C /* OneTimeCodeTextField.swift in Sources */,
 				7DB72B8A2922F4DC00AC028A /* MentorModel.swift in Sources */,
 				7D907F222921E67B0093337E /* SettingsController.swift in Sources */,
 				7DB72B9029230B7A00AC028A /* PromotionModel.swift in Sources */,
 				7DB397482922947E00E044E8 /* CategoryModel.swift in Sources */,
+				7D9BFB55292435700055EA83 /* CourseController.swift in Sources */,
 				7DC65E3C291C4066003973C8 /* LoginResponse.swift in Sources */,
+				7D9BFB5329242A240055EA83 /* CourseService.swift in Sources */,
 				7DC65E3A291C3B46003973C8 /* UserModel.swift in Sources */,
 				7D6F818E291FF57B0086600C /* VerificationController.swift in Sources */,
 				7D8E0EC1291C312C00799291 /* AppDelegate.swift in Sources */,
