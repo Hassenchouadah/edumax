@@ -11,7 +11,14 @@ class HomeController: UIViewController {
     
     
     var categories = [CategoryModel]()
+    var mentors = [MentorModel]()
+    var promotions = [PromotionModel]()
+
     var selectedCategory = "";
+    
+    var mentorService = MentorService()
+    var categoryService = CategoryService()
+    var promotionService = PromotionService()
     
     @IBOutlet weak var categoryView: UICollectionView! = {
         let layout = UICollectionViewFlowLayout()
@@ -49,6 +56,12 @@ class HomeController: UIViewController {
         return cv
     }()
     
+    func showAlertView(from vc: UIViewController?,message:String) {
+        let alertController = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
+        vc?.present(alertController, animated: true)
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,19 +74,47 @@ class HomeController: UIViewController {
         
         categoryView.delegate = self
         categoryView.dataSource = self
-
+        
         coursesView.delegate = self
         coursesView.dataSource = self
-
         
         
-        categories = [
-            CategoryModel(_id: "1", title: "All"),
-            CategoryModel(_id: "2", title: "Chemistry"),
-            CategoryModel(_id: "3", title: "IT"),
-            CategoryModel(_id: "4", title: "Business")
-        ]
-        selectedCategory = categories.first!._id;
+        categoryService.getCategories(onSuccess: {[weak self] (response) in
+            DispatchQueue.main.async {
+                self!.categories = response
+                self!.selectedCategory = response.first!._id
+                self!.categoryView.reloadData()
+            }
+        }, onError: {[weak self] (error) in
+            DispatchQueue.main.async {
+                self?.showAlertView(from: self, message: error.localizedDescription)
+            }
+        })
+        
+        mentorService.getMentors(onSuccess: {[weak self] (response) in
+            DispatchQueue.main.async {
+                self!.mentors = response
+                self!.mentorsView.reloadData()
+            }
+        }, onError: {[weak self] (error) in
+            DispatchQueue.main.async {
+                self?.showAlertView(from: self, message: error.localizedDescription)
+            }
+        })
+        
+        promotionService.getPromotions(onSuccess: {[weak self] (response) in
+            DispatchQueue.main.async {
+                self!.promotions = response
+                self!.PromotionView.reloadData()
+            }
+        }, onError: {[weak self] (error) in
+            DispatchQueue.main.async {
+                self?.showAlertView(from: self, message: error.localizedDescription)
+            }
+        })
+        
+        
+        
         
         // Do any additional setup after loading the view.
     }
@@ -93,16 +134,14 @@ extension HomeController :UICollectionViewDelegateFlowLayout, UICollectionViewDa
                 {
                     self.categoryView.reloadSections(NSIndexSet(index: 0) as IndexSet)
                 }, completion: { (finished:Bool) -> Void in
-                })
-            print(selectedCategory)
-        }
+                })        }
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if (collectionView == PromotionView){
-            return 2
+            return promotions.count
         } else if collectionView == mentorsView{
-            return 6;
+            return mentors.count;
         }else if collectionView == categoryView{
             return categories.count
         }else{
@@ -115,19 +154,22 @@ extension HomeController :UICollectionViewDelegateFlowLayout, UICollectionViewDa
         let contentView = cell.contentView
         
         let backgroundView = contentView.viewWithTag(5) as! UIImageView
-        backgroundView.image = UIImage(named: "mesh-706.png")
-        //backgroundView.backgroundColor = .blue
+        
+        //backgroundView.image = UIImage(named: "mesh-706.png")
+        backgroundView.load(url: URL(string: "http://localhost:5000\(promotions[indexPath.row].image)")!)
 
+        //backgroundView.backgroundColor = .blue
+        
         backgroundView.layer.cornerRadius = 18
         let titlep = contentView.viewWithTag(1) as! UILabel
         let subtitlep = contentView.viewWithTag(2) as! UILabel
         let descriptionp = contentView.viewWithTag(3) as! UILabel
         let percentagep = contentView.viewWithTag(4) as! UILabel
         
-        titlep.text = "50% OFF"
-        subtitlep.text = "Tomorrow's Special"
-        descriptionp.text = "Get a discount of"
-        percentagep.text = "50%"
+        titlep.text = promotions[indexPath.row].title
+        subtitlep.text = promotions[indexPath.row].subtitle
+        descriptionp.text = promotions[indexPath.row].description
+        percentagep.text = promotions[indexPath.row].percentage
         
         return cell
     }
@@ -140,8 +182,9 @@ extension HomeController :UICollectionViewDelegateFlowLayout, UICollectionViewDa
         let mentorImage = contentView.viewWithTag(1) as! UIImageView
         let mentorName = contentView.viewWithTag(2) as! UILabel
         
-        mentorName.text = "Hassen"
-        mentorImage.image = UIImage(named: "profile.jpeg")
+        mentorName.text = mentors[indexPath.row].firstName
+        //mentorImage.image = UIImage(named: "profile.jpeg")
+        mentorImage.load(url: URL(string: mentors[indexPath.row].avatar)! )
         mentorImage.layer.cornerRadius = mentorImage.bounds.width/2
         
         
@@ -163,9 +206,9 @@ extension HomeController :UICollectionViewDelegateFlowLayout, UICollectionViewDa
         
         if(categories[indexPath.row]._id==selectedCategory){
             categoryName.textColor = .white;
-            categoryView.backgroundColor = .blue;
+            categoryView.backgroundColor = .systemIndigo;
         }else{
-            categoryName.textColor = .blue;
+            categoryName.textColor = .systemIndigo;
             categoryView.backgroundColor = .white;
             categoryView.layer.borderWidth = 0.4
             categoryView.layer.borderColor = UIColor(red: 55/255, green: 59/255, blue: 100/255, alpha: 1).cgColor;
@@ -186,7 +229,7 @@ extension HomeController :UICollectionViewDelegateFlowLayout, UICollectionViewDa
         let courseTitle = contentView.viewWithTag(2) as! UILabel
         let courseDescription = contentView.viewWithTag(3) as! UILabel
         let coursePrice = contentView.viewWithTag(4) as! UILabel
-
+        
         
         courseImage.image = UIImage(named: "profile.jpeg")
         courseImage.layer.cornerRadius = 12
@@ -211,7 +254,6 @@ extension HomeController :UICollectionViewDelegateFlowLayout, UICollectionViewDa
             return buildCourseCell(collectionView: collectionView, cellForItemAt: indexPath)
         }
         
-        
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -223,6 +265,20 @@ extension HomeController :UICollectionViewDelegateFlowLayout, UICollectionViewDa
             return CGSize(width: 128, height:44)
         }else{
             return CGSize(width: 300, height:131)
+        }
+    }
+}
+
+extension UIImageView {
+    func load(url: URL) {
+        DispatchQueue.global().async { [weak self] in
+            if let data = try? Data(contentsOf: url) {
+                if let image = UIImage(data: data) {
+                    DispatchQueue.main.async {
+                        self?.image = image
+                    }
+                }
+            }
         }
     }
 }

@@ -537,7 +537,7 @@ only valid for today</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="PeQ-yD-bpp">
-                                <rect key="frame" x="16" y="613" width="358" height="160"/>
+                                <rect key="frame" x="16" y="604" width="358" height="160"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Q5P-NL-sro">
                                     <size key="itemSize" width="336" height="131"/>
@@ -553,6 +553,10 @@ only valid for today</string>
                                             <rect key="frame" x="0.0" y="0.0" width="336" height="131"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.10000000000000001" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="mesh-white" translatesAutoresizingMaskIntoConstraints="NO" id="7aq-2C-JKq">
+                                                    <rect key="frame" x="0.0" y="1.3333333333333712" width="336" height="129"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="profile" translatesAutoresizingMaskIntoConstraints="NO" id="aWt-d7-IkP">
                                                     <rect key="frame" x="9" y="8" width="103" height="115"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -685,6 +689,7 @@ only valid for today</string>
         <image name="login-logo" width="784" height="784"/>
         <image name="magnifyingglass" catalog="system" width="128" height="117"/>
         <image name="mesh-706" width="1024" height="600"/>
+        <image name="mesh-white" width="1024" height="600"/>
         <image name="person.crop.circle" catalog="system" width="128" height="123"/>
         <image name="profile" width="460" height="460"/>
         <image name="signup-logo" width="784" height="784"/>

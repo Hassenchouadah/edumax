@@ -61,7 +61,7 @@ class RegisterController: UIViewController {
         }
         
         authService.register(
-            user: UserModel(_id: "", email: emailInput.text!, password: passwordInput.text!, phone: phoneInput.text!,avatar: "",verified: 0,accessToken: ""),
+            user: UserModel(_id: "", email: emailInput.text!, password: passwordInput.text!, phone: phoneInput.text!,avatar: "",verified: 0,token: ""),
             onSuccess: {[weak self] (response) in
                 DispatchQueue.main.async {
                     if(response.status==200){

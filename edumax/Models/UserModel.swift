@@ -15,5 +15,5 @@ struct UserModel: Codable {
     let phone: String
     let avatar:String
     let verified:Int
-    let accessToken:String?
+    let token:String
 }
