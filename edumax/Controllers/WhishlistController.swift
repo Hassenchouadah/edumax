@@ -9,7 +9,7 @@ import UIKit
 import SwiftUI
 
 class WhishlistController: UIViewController {
-
+    
     var whishlist:[CourseModel] = [];
     
     var ws = WishlistStorage();
@@ -23,20 +23,34 @@ class WhishlistController: UIViewController {
         return cv
     }()
     
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         WishlistView.dataSource = self;
         WishlistView.delegate = self;
         whishlist = ws.getCourses();
         
-
-        // Do any additional setup after loading the view.
+        self.WishlistView.performBatchUpdates(
+            {
+                self.WishlistView.reloadSections(NSIndexSet(index: 0) as IndexSet)
+            }, completion: { (finished:Bool) -> Void in
+            })
+        
     }
     
-
-
-
+    override func viewDidAppear(_ animated: Bool) {
+        whishlist = ws.getCourses();
+        
+        self.WishlistView.performBatchUpdates(
+            {
+                self.WishlistView.reloadSections(NSIndexSet(index: 0) as IndexSet)
+            }, completion: { (finished:Bool) -> Void in
+            })
+    }
+    
+    
+    
+    
 }
 
 
@@ -49,14 +63,14 @@ extension WhishlistController :UICollectionViewDelegateFlowLayout, UICollectionV
             present(vc,animated: true);
             
         }
-
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return whishlist.count
     }
     
-
+    
     func buildCourseCell(collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "courseCell", for: indexPath)
         let contentView = cell.contentView
