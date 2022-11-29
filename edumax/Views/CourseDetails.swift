@@ -9,7 +9,8 @@ import SwiftUI
 
 import SwiftUI
 
-struct DetailScreen: View {
+struct CourseDetails: View {
+    var course:CourseModel;
 
     
     var body: some View {
@@ -17,27 +18,30 @@ struct DetailScreen: View {
             Color("Bg")
             ScrollView  {
                 
-                AsyncImage(url: URL(string: "http://localhost:5001/uploads/courses/1.png")!,
+                AsyncImage(url: URL(string: "http://localhost:5001\(course.image)")!,
                                placeholder: { Text("Loading ...") },
                            image: { Image(uiImage: $0).resizable() })
-                        .aspectRatio(1,contentMode: .fit)
+                .frame(width:400,height: 380)
+                .scaledToFit()
+                        
+                        
                         .edgesIgnoringSafeArea(.top)
                 
-                DescriptionView()
+                DescriptionView(course:course)
                 
             }
             .edgesIgnoringSafeArea(.top)
             
             HStack {
-                Text("$1299")
+                Text(course.price)
                     .font(.title)
                     .foregroundColor(.white)
                 Spacer()
                 
-                Text("Add to Cart")
+                Text("Enroll")
                     .font(.title3)
                     .fontWeight(.semibold)
-                    .foregroundColor(Color("Primary"))
+                    .foregroundColor(Color(hex: 0x7993afff))
                     .padding()
                     .padding(.horizontal, 8)
                     .background(Color.white)
@@ -46,7 +50,7 @@ struct DetailScreen: View {
             }
             .padding()
             .padding(.horizontal)
-            .background(Color("Primary"))
+            .background( Color(hex: 0x7993afff) )
             .cornerRadius(60.0, corners: .topLeft)
             .frame(maxHeight: .infinity, alignment: .bottom)
             .edgesIgnoringSafeArea(.bottom)
@@ -76,7 +80,7 @@ extension View {
 
 struct DetailScreen_Previews: PreviewProvider {
     static var previews: some View {
-        DetailScreen()
+        CourseDetails(course:CourseModel(_id: "", title: "", description: "", price: "", image: ""))
     }
 }
 
@@ -91,16 +95,29 @@ struct ColorDotView: View {
 }
 
 struct DescriptionView: View {
+    var course:CourseModel;
     var body: some View {
         VStack (alignment: .leading) {
             //                Title
-            Text("Luruxy Swedia \nChair")
-                .font(.title)
-                .fontWeight(.bold)
+            
+            HStack {
+                Text(course.title)
+                    .font(.title)
+                    .fontWeight(.bold)
+                Spacer()
+                Button {
+                   print("Added to whishlist")
+                }label: {
+                    Image(systemName: "star")
+                }
+                
+            }
             //                Rating
             HStack (spacing: 4) {
-                ForEach(0 ..< 5) { item in
-                    Image("star")
+                ForEach(0 ..< 3) { item in
+                    Image("star").resizable()
+                        .frame(width:20,height: 20)
+                        .scaledToFit()
                 }
                 Text("(4.9)")
                     .opacity(0.5)
@@ -111,7 +128,7 @@ struct DescriptionView: View {
             Text("Description")
                 .fontWeight(.medium)
                 .padding(.vertical, 8)
-            Text("Luxury Swedian Chair is a contemporary chair based on the virtues of modern craft. it carries on the simplicity and honestly of the archetypical chair.")
+            Text(course.description)
                 .lineSpacing(8.0)
                 .opacity(0.6)
             
@@ -204,5 +221,17 @@ struct BackButton: View {
                 .background(Color.white)
                 .cornerRadius(8.0)
         }
+    }
+}
+
+extension Color {
+    init(hex: UInt, alpha: Double = 1) {
+        self.init(
+            .sRGB,
+            red: Double((hex >> 16) & 0xff) / 255,
+            green: Double((hex >> 08) & 0xff) / 255,
+            blue: Double((hex >> 00) & 0xff) / 255,
+            opacity: alpha
+        )
     }
 }

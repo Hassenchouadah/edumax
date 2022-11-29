@@ -7,14 +7,57 @@
 
 import SwiftUI
 
-struct Courses: View {
+struct CoursesView: View {
+    
+    @State var courses = [CourseModel]()
+    
+    func loadCourses() {
+        guard let url = URL(string: "http://localhost:5001/api/courses/") else {
+            print("Invalid URL")
+            return
+        }
+        let request = URLRequest(url: url)
+        
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            if let data = data {
+                if let response = try? JSONDecoder().decode([CourseModel].self, from: data) {
+                    DispatchQueue.main.async {
+                        self.courses = response
+                    }
+                    return
+                }
+            }
+        }.resume()
+    }
+    
+   
+    
+    var columns = [GridItem(.adaptive(minimum: 160), spacing: 20)]
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationView {
+            ScrollView {
+                LazyVGrid(columns: columns, spacing: 20) {
+                    ForEach(courses, id: \._id) { course in
+                
+                        NavigationLink(destination: CourseDetails(course:course)) {
+                            CourseCard(course: course)
+                        }
+                        
+                            
+                    }
+                }.onAppear(perform: loadCourses)
+                .padding()
+            }
+            .navigationTitle(Text("Courses"))
+            
+        }
+        .navigationViewStyle(StackNavigationViewStyle())
     }
 }
 
-struct Courses_Previews: PreviewProvider {
+struct CoursesView_Previews: PreviewProvider {
     static var previews: some View {
-        Courses()
+        CoursesView()
     }
 }

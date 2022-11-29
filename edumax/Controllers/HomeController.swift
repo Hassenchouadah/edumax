@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SwiftUI
 
 class HomeController: UIViewController {
     
@@ -22,6 +23,9 @@ class HomeController: UIViewController {
     var categoryService = CategoryService()
     var promotionService = PromotionService()
     var courseService = CourseService()
+    var userStorage = UserStorage()
+    
+    @IBOutlet weak var FullName: UILabel!
     
     @IBOutlet weak var categoryView: UICollectionView! = {
         let layout = UICollectionViewFlowLayout()
@@ -65,10 +69,16 @@ class HomeController: UIViewController {
         vc?.present(alertController, animated: true)
     }
     
+    @IBOutlet weak var avatarImg: UIImageView!
     
+    @IBAction func redirectToCourses(_ sender: UIButton) {
+        let vc = UIHostingController(rootView: CoursesView());
+        present(vc,animated: true);
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        FullName.text = userStorage.getConnectedUser().email
+        avatarImg.load(url: URL(string: "http://localhost:5001\(userStorage.getConnectedUser().avatar)")!)
         PromotionView.delegate = self
         PromotionView.dataSource = self
         
@@ -139,18 +149,13 @@ class HomeController: UIViewController {
 
 
 extension HomeController :UICollectionViewDelegateFlowLayout, UICollectionViewDataSource{
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "HomeToCourseDetails"{
-            let destination = segue.destination as! CourseController
-            let course = sender as! CourseModel
-            destination.course = course
-        }
     
-    }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView==coursesView{
             
-            performSegue(withIdentifier: "HomeToCourseDetails", sender: courses[indexPath.row])
+            let vc = UIHostingController(rootView: CourseDetails(course: courses[indexPath.row] ));
+            present(vc,animated: true);
+            
         }
         if collectionView==categoryView {
             

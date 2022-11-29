@@ -27,7 +27,12 @@
 		7D907F222921E67B0093337E /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D907F212921E67B0093337E /* SettingsController.swift */; };
 		7D9BFB51292429CA0055EA83 /* CourseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D9BFB50292429CA0055EA83 /* CourseModel.swift */; };
 		7D9BFB5329242A240055EA83 /* CourseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D9BFB5229242A240055EA83 /* CourseService.swift */; };
-		7D9BFB55292435700055EA83 /* CourseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D9BFB54292435700055EA83 /* CourseController.swift */; };
+		7DACCBD729365052008EDD6C /* Courses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DACCBD629365052008EDD6C /* Courses.swift */; };
+		7DACCBD9293653E6008EDD6C /* CourseCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DACCBD8293653E6008EDD6C /* CourseCard.swift */; };
+		7DACCBDB29365B4D008EDD6C /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DACCBDA29365B4D008EDD6C /* ImageLoader.swift */; };
+		7DACCBDD29365EE8008EDD6C /* CourseDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DACCBDC29365EE8008EDD6C /* CourseDetails.swift */; };
+		7DACCBDF293676FF008EDD6C /* WhishlistStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DACCBDE293676FF008EDD6C /* WhishlistStorage.swift */; };
+		7DACCBE129367F65008EDD6C /* WhishlistController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DACCBE029367F65008EDD6C /* WhishlistController.swift */; };
 		7DB397482922947E00E044E8 /* CategoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB397472922947E00E044E8 /* CategoryModel.swift */; };
 		7DB72B8A2922F4DC00AC028A /* MentorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB72B892922F4DC00AC028A /* MentorModel.swift */; };
 		7DB72B8C2922F52900AC028A /* MentorService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB72B8B2922F52900AC028A /* MentorService.swift */; };
@@ -83,7 +88,12 @@
 		7D907F212921E67B0093337E /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
 		7D9BFB50292429CA0055EA83 /* CourseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseModel.swift; sourceTree = "<group>"; };
 		7D9BFB5229242A240055EA83 /* CourseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseService.swift; sourceTree = "<group>"; };
-		7D9BFB54292435700055EA83 /* CourseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseController.swift; sourceTree = "<group>"; };
+		7DACCBD629365052008EDD6C /* Courses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Courses.swift; sourceTree = "<group>"; };
+		7DACCBD8293653E6008EDD6C /* CourseCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseCard.swift; sourceTree = "<group>"; };
+		7DACCBDA29365B4D008EDD6C /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
+		7DACCBDC29365EE8008EDD6C /* CourseDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseDetails.swift; sourceTree = "<group>"; };
+		7DACCBDE293676FF008EDD6C /* WhishlistStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhishlistStorage.swift; sourceTree = "<group>"; };
+		7DACCBE029367F65008EDD6C /* WhishlistController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhishlistController.swift; sourceTree = "<group>"; };
 		7DB397472922947E00E044E8 /* CategoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryModel.swift; sourceTree = "<group>"; };
 		7DB72B892922F4DC00AC028A /* MentorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MentorModel.swift; sourceTree = "<group>"; };
 		7DB72B8B2922F52900AC028A /* MentorService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MentorService.swift; sourceTree = "<group>"; };
@@ -145,6 +155,7 @@
 		7D8E0EBF291C312C00799291 /* edumax */ = {
 			isa = PBXGroup;
 			children = (
+				7DACCBD529365018008EDD6C /* Views */,
 				7D907F1E2921D8A70093337E /* LocalStorage */,
 				7DC65E36291C3A1B003973C8 /* Protocols */,
 				7D8E0EF7291C371600799291 /* Components */,
@@ -189,7 +200,7 @@
 				7D907F212921E67B0093337E /* SettingsController.swift */,
 				7D3248AF292273770095B325 /* HomeController.swift */,
 				7D3248B1292273A30095B325 /* ProfileController.swift */,
-				7D9BFB54292435700055EA83 /* CourseController.swift */,
+				7DACCBE029367F65008EDD6C /* WhishlistController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -224,6 +235,7 @@
 				7DB72B8D292302A000AC028A /* CategoryService.swift */,
 				7DB72B9129230BBF00AC028A /* PromotionService.swift */,
 				7D9BFB5229242A240055EA83 /* CourseService.swift */,
+				7DACCBDA29365B4D008EDD6C /* ImageLoader.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -240,8 +252,19 @@
 			isa = PBXGroup;
 			children = (
 				7D907F1F2921D8CC0093337E /* UserStorage.swift */,
+				7DACCBDE293676FF008EDD6C /* WhishlistStorage.swift */,
 			);
 			path = LocalStorage;
+			sourceTree = "<group>";
+		};
+		7DACCBD529365018008EDD6C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				7DACCBD629365052008EDD6C /* Courses.swift */,
+				7DACCBD8293653E6008EDD6C /* CourseCard.swift */,
+				7DACCBDC29365EE8008EDD6C /* CourseDetails.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		7DC65E36291C3A1B003973C8 /* Protocols */ = {
@@ -386,20 +409,25 @@
 				7DC486F2291FE63A00D40EA2 /* RegisterController.swift in Sources */,
 				7D8E0EC5291C312C00799291 /* LoginController.swift in Sources */,
 				7DC65E38291C3A2C003973C8 /* AuthServiceProtocol.swift in Sources */,
+				7DACCBDB29365B4D008EDD6C /* ImageLoader.swift in Sources */,
 				7DB72B8E292302A000AC028A /* CategoryService.swift in Sources */,
 				7DC486F4291FEB2B00D40EA2 /* BackendResponse.swift in Sources */,
 				7D907F202921D8CC0093337E /* UserStorage.swift in Sources */,
 				7D9BFB51292429CA0055EA83 /* CourseModel.swift in Sources */,
 				7D6F818C291FF2A60086600C /* OneTimeCodeTextField.swift in Sources */,
+				7DACCBD729365052008EDD6C /* Courses.swift in Sources */,
 				7DB72B8A2922F4DC00AC028A /* MentorModel.swift in Sources */,
 				7D907F222921E67B0093337E /* SettingsController.swift in Sources */,
 				7DB72B9029230B7A00AC028A /* PromotionModel.swift in Sources */,
+				7DACCBDF293676FF008EDD6C /* WhishlistStorage.swift in Sources */,
+				7DACCBDD29365EE8008EDD6C /* CourseDetails.swift in Sources */,
 				7DB397482922947E00E044E8 /* CategoryModel.swift in Sources */,
-				7D9BFB55292435700055EA83 /* CourseController.swift in Sources */,
 				7DC65E3C291C4066003973C8 /* LoginResponse.swift in Sources */,
 				7D9BFB5329242A240055EA83 /* CourseService.swift in Sources */,
 				7DC65E3A291C3B46003973C8 /* UserModel.swift in Sources */,
 				7D6F818E291FF57B0086600C /* VerificationController.swift in Sources */,
+				7DACCBD9293653E6008EDD6C /* CourseCard.swift in Sources */,
+				7DACCBE129367F65008EDD6C /* WhishlistController.swift in Sources */,
 				7D8E0EC1291C312C00799291 /* AppDelegate.swift in Sources */,
 				7D8E0EC3291C312C00799291 /* SceneDelegate.swift in Sources */,
 				7DB72B9229230BBF00AC028A /* PromotionService.swift in Sources */,
