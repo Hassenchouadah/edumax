@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SwiftUI
 
 class HomeController: UIViewController {
     
@@ -13,12 +14,18 @@ class HomeController: UIViewController {
     var categories = [CategoryModel]()
     var mentors = [MentorModel]()
     var promotions = [PromotionModel]()
+    var courses = [CourseModel]()
+    
 
     var selectedCategory = "";
     
     var mentorService = MentorService()
     var categoryService = CategoryService()
     var promotionService = PromotionService()
+    var courseService = CourseService()
+    var userStorage = UserStorage()
+    
+    @IBOutlet weak var FullName: UILabel!
     
     @IBOutlet weak var categoryView: UICollectionView! = {
         let layout = UICollectionViewFlowLayout()
@@ -62,10 +69,16 @@ class HomeController: UIViewController {
         vc?.present(alertController, animated: true)
     }
     
+    @IBOutlet weak var avatarImg: UIImageView!
     
+    @IBAction func redirectToCourses(_ sender: UIButton) {
+        let vc = UIHostingController(rootView: CoursesView());
+        present(vc,animated: true);
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        FullName.text = userStorage.getConnectedUser().email
+        avatarImg.load(url: URL(string: "http://localhost:5001\(userStorage.getConnectedUser().avatar)")!)
         PromotionView.delegate = self
         PromotionView.dataSource = self
         
@@ -113,6 +126,17 @@ class HomeController: UIViewController {
             }
         })
         
+        courseService.getCourses(onSuccess: {[weak self] (response) in
+            DispatchQueue.main.async {
+                self!.courses = response
+                self!.coursesView.reloadData()
+            }
+        }, onError: {[weak self] (error) in
+            DispatchQueue.main.async {
+                self?.showAlertView(from: self, message: error.localizedDescription)
+            }
+        })
+        
         
         
         
@@ -127,7 +151,14 @@ class HomeController: UIViewController {
 extension HomeController :UICollectionViewDelegateFlowLayout, UICollectionViewDataSource{
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if collectionView==coursesView{
+            
+            let vc = UIHostingController(rootView: CourseDetails(course: courses[indexPath.row] ));
+            present(vc,animated: true);
+            
+        }
         if collectionView==categoryView {
+            
             
             selectedCategory = categories[indexPath.row]._id
             self.categoryView.performBatchUpdates(
@@ -145,7 +176,7 @@ extension HomeController :UICollectionViewDelegateFlowLayout, UICollectionViewDa
         }else if collectionView == categoryView{
             return categories.count
         }else{
-            return 6
+            return courses.count
         }
     }
     
@@ -156,7 +187,7 @@ extension HomeController :UICollectionViewDelegateFlowLayout, UICollectionViewDa
         let backgroundView = contentView.viewWithTag(5) as! UIImageView
         
         //backgroundView.image = UIImage(named: "mesh-706.png")
-        backgroundView.load(url: URL(string: "http://localhost:5000\(promotions[indexPath.row].image)")!)
+        backgroundView.load(url: URL(string: "http://localhost:5001\(promotions[indexPath.row].image)")!)
 
         //backgroundView.backgroundColor = .blue
         
@@ -231,12 +262,12 @@ extension HomeController :UICollectionViewDelegateFlowLayout, UICollectionViewDa
         let coursePrice = contentView.viewWithTag(4) as! UILabel
         
         
-        courseImage.image = UIImage(named: "profile.jpeg")
+        courseImage.load(url: URL(string: "http://localhost:5001\(courses[indexPath.row].image)")!)
         courseImage.layer.cornerRadius = 12
         
-        courseTitle.text = "Design illustration"
-        courseDescription.text = "Design illustration 3D"
-        coursePrice.text = "45$"
+        courseTitle.text = courses[indexPath.row].title
+        courseDescription.text = courses[indexPath.row].description
+        coursePrice.text = courses[indexPath.row].price
         
         
         return cell
