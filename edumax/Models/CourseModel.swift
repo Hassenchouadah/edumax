@@ -14,4 +14,5 @@ struct CourseModel: Codable {
     let description: String
     let price: String
     let image:String
+    let mentor: MentorModel?
 }

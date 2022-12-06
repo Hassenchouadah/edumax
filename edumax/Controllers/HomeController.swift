@@ -215,7 +215,7 @@ extension HomeController :UICollectionViewDelegateFlowLayout, UICollectionViewDa
         
         mentorName.text = mentors[indexPath.row].firstName
         //mentorImage.image = UIImage(named: "profile.jpeg")
-        mentorImage.load(url: URL(string: mentors[indexPath.row].avatar)! )
+        mentorImage.load(url: URL(string: "http://localhost:5001"+mentors[indexPath.row].avatar)! )
         mentorImage.layer.cornerRadius = mentorImage.bounds.width/2
         
         

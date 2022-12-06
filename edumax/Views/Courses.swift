@@ -11,6 +11,9 @@ struct CoursesView: View {
     
     @State var courses = [CourseModel]()
     
+    @State var wishlist = [CourseModel]()
+    
+    
     func loadCourses() {
         guard let url = URL(string: "http://localhost:5001/api/courses/") else {
             print("Invalid URL")
@@ -40,7 +43,7 @@ struct CoursesView: View {
                 LazyVGrid(columns: columns, spacing: 20) {
                     ForEach(courses, id: \._id) { course in
                 
-                        NavigationLink(destination: CourseDetails(course:course)) {
+                        NavigationLink(destination: CourseDetails(course:course) ) {
                             CourseCard(course: course)
                         }
                         

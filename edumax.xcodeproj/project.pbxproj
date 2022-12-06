@@ -44,6 +44,16 @@
 		7DC65E38291C3A2C003973C8 /* AuthServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DC65E37291C3A2C003973C8 /* AuthServiceProtocol.swift */; };
 		7DC65E3A291C3B46003973C8 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DC65E39291C3B46003973C8 /* UserModel.swift */; };
 		7DC65E3C291C4066003973C8 /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DC65E3B291C4066003973C8 /* LoginResponse.swift */; };
+		7DD0C99C293E662A002755F1 /* 13903_Mars_v1_l3.mtl in Resources */ = {isa = PBXBuildFile; fileRef = 7DD0C99B293E662A002755F1 /* 13903_Mars_v1_l3.mtl */; };
+		7DD0C99E293E6634002755F1 /* 13903_Mars_v1_l3.obj in Resources */ = {isa = PBXBuildFile; fileRef = 7DD0C99D293E6634002755F1 /* 13903_Mars_v1_l3.obj */; };
+		7DD0C9A0293E663B002755F1 /* Mars_diff.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7DD0C99F293E663B002755F1 /* Mars_diff.jpg */; };
+		7DD0C9A6293E664A002755F1 /* Pluto.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 7DD0C9A1293E664A002755F1 /* Pluto.usdz */; };
+		7DD0C9A7293E664A002755F1 /* Mars.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 7DD0C9A2293E664A002755F1 /* Mars.usdz */; };
+		7DD0C9A8293E664A002755F1 /* Venus.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 7DD0C9A3293E664A002755F1 /* Venus.usdz */; };
+		7DD0C9A9293E664A002755F1 /* Jupiter.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 7DD0C9A4293E664A002755F1 /* Jupiter.usdz */; };
+		7DD0C9AA293E664A002755F1 /* Earth.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 7DD0C9A5293E664A002755F1 /* Earth.usdz */; };
+		7DD0C9AC293E6ACA002755F1 /* London_Roman_Wall_Corner_Tower.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 7DD0C9AB293E6ACA002755F1 /* London_Roman_Wall_Corner_Tower.usdz */; };
+		7DF9FED8293E551B003DFD75 /* ARView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF9FED7293E551B003DFD75 /* ARView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,6 +115,16 @@
 		7DC65E37291C3A2C003973C8 /* AuthServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthServiceProtocol.swift; sourceTree = "<group>"; };
 		7DC65E39291C3B46003973C8 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		7DC65E3B291C4066003973C8 /* LoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
+		7DD0C99B293E662A002755F1 /* 13903_Mars_v1_l3.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = 13903_Mars_v1_l3.mtl; path = ../../../../Downloads/Scene/Scene/OBJ/13903_Mars_v1_l3.mtl; sourceTree = "<group>"; };
+		7DD0C99D293E6634002755F1 /* 13903_Mars_v1_l3.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = 13903_Mars_v1_l3.obj; path = ../../../../Downloads/Scene/Scene/OBJ/13903_Mars_v1_l3.obj; sourceTree = "<group>"; };
+		7DD0C99F293E663B002755F1 /* Mars_diff.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Mars_diff.jpg; path = ../../../../Downloads/Scene/Scene/OBJ/Mars_diff.jpg; sourceTree = "<group>"; };
+		7DD0C9A1293E664A002755F1 /* Pluto.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; name = Pluto.usdz; path = ../../../../Downloads/Scene/Scene/Objects/Pluto.usdz; sourceTree = "<group>"; };
+		7DD0C9A2293E664A002755F1 /* Mars.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; name = Mars.usdz; path = ../../../../Downloads/Scene/Scene/Objects/Mars.usdz; sourceTree = "<group>"; };
+		7DD0C9A3293E664A002755F1 /* Venus.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; name = Venus.usdz; path = ../../../../Downloads/Scene/Scene/Objects/Venus.usdz; sourceTree = "<group>"; };
+		7DD0C9A4293E664A002755F1 /* Jupiter.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; name = Jupiter.usdz; path = ../../../../Downloads/Scene/Scene/Objects/Jupiter.usdz; sourceTree = "<group>"; };
+		7DD0C9A5293E664A002755F1 /* Earth.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; name = Earth.usdz; path = ../../../../Downloads/Scene/Scene/Objects/Earth.usdz; sourceTree = "<group>"; };
+		7DD0C9AB293E6ACA002755F1 /* London_Roman_Wall_Corner_Tower.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; name = London_Roman_Wall_Corner_Tower.usdz; path = ../../../../Downloads/London_Roman_Wall_Corner_Tower.usdz; sourceTree = "<group>"; };
+		7DF9FED7293E551B003DFD75 /* ARView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +175,8 @@
 		7D8E0EBF291C312C00799291 /* edumax */ = {
 			isa = PBXGroup;
 			children = (
+				7DD0C99A293E65FC002755F1 /* Objects */,
+				7DD0C999293E65EF002755F1 /* OBJ */,
 				7DACCBD529365018008EDD6C /* Views */,
 				7D907F1E2921D8A70093337E /* LocalStorage */,
 				7DC65E36291C3A1B003973C8 /* Protocols */,
@@ -263,6 +285,7 @@
 				7DACCBD629365052008EDD6C /* Courses.swift */,
 				7DACCBD8293653E6008EDD6C /* CourseCard.swift */,
 				7DACCBDC29365EE8008EDD6C /* CourseDetails.swift */,
+				7DF9FED7293E551B003DFD75 /* ARView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -273,6 +296,29 @@
 				7DC65E37291C3A2C003973C8 /* AuthServiceProtocol.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		7DD0C999293E65EF002755F1 /* OBJ */ = {
+			isa = PBXGroup;
+			children = (
+				7DD0C99B293E662A002755F1 /* 13903_Mars_v1_l3.mtl */,
+				7DD0C99D293E6634002755F1 /* 13903_Mars_v1_l3.obj */,
+				7DD0C99F293E663B002755F1 /* Mars_diff.jpg */,
+			);
+			path = OBJ;
+			sourceTree = "<group>";
+		};
+		7DD0C99A293E65FC002755F1 /* Objects */ = {
+			isa = PBXGroup;
+			children = (
+				7DD0C9AB293E6ACA002755F1 /* London_Roman_Wall_Corner_Tower.usdz */,
+				7DD0C9A5293E664A002755F1 /* Earth.usdz */,
+				7DD0C9A4293E664A002755F1 /* Jupiter.usdz */,
+				7DD0C9A2293E664A002755F1 /* Mars.usdz */,
+				7DD0C9A1293E664A002755F1 /* Pluto.usdz */,
+				7DD0C9A3293E664A002755F1 /* Venus.usdz */,
+			);
+			path = Objects;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -379,9 +425,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7DD0C9A7293E664A002755F1 /* Mars.usdz in Resources */,
+				7DD0C9A9293E664A002755F1 /* Jupiter.usdz in Resources */,
+				7DD0C9AA293E664A002755F1 /* Earth.usdz in Resources */,
+				7DD0C9A8293E664A002755F1 /* Venus.usdz in Resources */,
+				7DD0C9AC293E6ACA002755F1 /* London_Roman_Wall_Corner_Tower.usdz in Resources */,
+				7DD0C99E293E6634002755F1 /* 13903_Mars_v1_l3.obj in Resources */,
 				7D8E0ED0291C312D00799291 /* LaunchScreen.storyboard in Resources */,
+				7DD0C9A6293E664A002755F1 /* Pluto.usdz in Resources */,
+				7DD0C99C293E662A002755F1 /* 13903_Mars_v1_l3.mtl in Resources */,
 				7D8E0ECD291C312D00799291 /* Assets.xcassets in Resources */,
 				7D8E0EC8291C312C00799291 /* Main.storyboard in Resources */,
+				7DD0C9A0293E663B002755F1 /* Mars_diff.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -427,6 +482,7 @@
 				7DC65E3A291C3B46003973C8 /* UserModel.swift in Sources */,
 				7D6F818E291FF57B0086600C /* VerificationController.swift in Sources */,
 				7DACCBD9293653E6008EDD6C /* CourseCard.swift in Sources */,
+				7DF9FED8293E551B003DFD75 /* ARView.swift in Sources */,
 				7DACCBE129367F65008EDD6C /* WhishlistController.swift in Sources */,
 				7D8E0EC1291C312C00799291 /* AppDelegate.swift in Sources */,
 				7D8E0EC3291C312C00799291 /* SceneDelegate.swift in Sources */,

@@ -10,52 +10,71 @@ import SwiftUI
 import SwiftUI
 
 struct CourseDetails: View {
-    var course:CourseModel;
+    @State var course:CourseModel;
+    var courseService = CourseService();
+    
 
     
+    func fetchCourse() -> Void {
+        courseService.getCourseById(id: course._id,onSuccess: {[self] (response) in
+            DispatchQueue.main.async {
+                self.course = response
+            }
+        }, onError: {(error) in
+            DispatchQueue.main.async {
+                print(error.localizedDescription)
+            }
+        })
+    }
+    
     var body: some View {
-        ZStack {
-            Color("Bg")
-            ScrollView  {
+        NavigationView {
+            ZStack {
+                Color("Bg")
+                ScrollView  {
+                    
+                    AsyncImage(url: URL(string: "http://localhost:5001\(course.image)")!,
+                                   placeholder: { Text("Loading ...") },
+                               image: { Image(uiImage: $0).resizable() })
+                    .frame(width:400,height: 380)
+                    .scaledToFit()
+                            
+                            
+                            .edgesIgnoringSafeArea(.top)
+                    
+                    DescriptionView(course:course)
+                    
+                }
+                .edgesIgnoringSafeArea(.top)
                 
-                AsyncImage(url: URL(string: "http://localhost:5001\(course.image)")!,
-                               placeholder: { Text("Loading ...") },
-                           image: { Image(uiImage: $0).resizable() })
-                .frame(width:400,height: 380)
-                .scaledToFit()
-                        
-                        
-                        .edgesIgnoringSafeArea(.top)
-                
-                DescriptionView(course:course)
-                
+                HStack {
+                    Text(course.price)
+                        .font(.title)
+                        .foregroundColor(.white)
+                    Spacer()
+                    
+                    NavigationLink(destination: ARView() ) {
+                        Text("Enroll")
+                            .font(.title3)
+                            .fontWeight(.semibold)
+                            .foregroundColor(Color(hex: 0x7993afff))
+                            .padding()
+                            .padding(.horizontal, 8)
+                            .background(Color.white)
+                            .cornerRadius(10.0)
+                    }
+                    
+                    
+                }
+                .padding()
+                .padding(.horizontal)
+                .background( Color(hex: 0x7993afff) )
+                .cornerRadius(60.0, corners: .topLeft)
+                .frame(maxHeight: .infinity, alignment: .bottom)
+                .edgesIgnoringSafeArea(.bottom)
             }
-            .edgesIgnoringSafeArea(.top)
-            
-            HStack {
-                Text(course.price)
-                    .font(.title)
-                    .foregroundColor(.white)
-                Spacer()
-                
-                Text("Enroll")
-                    .font(.title3)
-                    .fontWeight(.semibold)
-                    .foregroundColor(Color(hex: 0x7993afff))
-                    .padding()
-                    .padding(.horizontal, 8)
-                    .background(Color.white)
-                    .cornerRadius(10.0)
-                
-            }
-            .padding()
-            .padding(.horizontal)
-            .background( Color(hex: 0x7993afff) )
-            .cornerRadius(60.0, corners: .topLeft)
-            .frame(maxHeight: .infinity, alignment: .bottom)
-            .edgesIgnoringSafeArea(.bottom)
         }
-        .navigationBarBackButtonHidden(true)
+        
         
     }
 }
@@ -80,7 +99,7 @@ extension View {
 
 struct DetailScreen_Previews: PreviewProvider {
     static var previews: some View {
-        CourseDetails(course:CourseModel(_id: "", title: "", description: "", price: "", image: ""))
+        CourseDetails(course:CourseModel(_id: "", title: "", description: "", price: "", image: "",mentor: MentorModel(_id: "", firstName: "", lastName: "", email: "", avatar: "")))
     }
 }
 
@@ -95,7 +114,11 @@ struct ColorDotView: View {
 }
 
 struct DescriptionView: View {
+    @State var refresh: Bool = false
+
     var course:CourseModel;
+    
+    
     var body: some View {
         VStack (alignment: .leading) {
             //                Title
@@ -114,7 +137,7 @@ struct DescriptionView: View {
             }
             //                Rating
             HStack (spacing: 4) {
-                ForEach(0 ..< 3) { item in
+                ForEach(0 ..< 5) { item in
                     Image("star").resizable()
                         .frame(width:20,height: 20)
                         .scaledToFit()
@@ -135,72 +158,37 @@ struct DescriptionView: View {
             //                Info
             HStack (alignment: .top) {
                 VStack (alignment: .leading) {
-                    Text("Size")
-                        .font(.system(size: 16))
-                        .fontWeight(.semibold)
-                    Text("Height: 120 cm")
-                        .opacity(0.6)
-                    Text("Wide: 80 cm")
-                        .opacity(0.6)
-                    Text("Diameter: 72 cm")
-                        .opacity(0.6)
+                    Text("Mentor")
+                    
+                    HStack(alignment: .top){
+                        if(course.mentor != nil){
+                            
+                            AsyncImage(url: URL(string: "http://localhost:5001\(course.mentor!.avatar)")!,
+                                           placeholder: { Text("Loading ...") },
+                                       image: { Image(uiImage: $0).resizable() })
+                            .frame(width:40,height: 40)
+                            .scaledToFit()
+                            Text(course.mentor!.firstName)
+                                .opacity(0.6)
+                            Text(course.mentor!.lastName)
+                                .opacity(0.6)
+                        }
+                        
+                    }
+                    
+                    
                 }
                 
                 .frame(maxWidth: .infinity, alignment: .leading)
                 
                 Spacer()
                 
-                VStack (alignment: .leading) {
-                    Text("Treatment")
-                        .font(.system(size: 16))
-                        .fontWeight(.semibold)
-                    Text("Jati Wood, Canvas, \nAmazing Love")
-                        .opacity(0.6)
-                }
-                .frame(maxWidth: .infinity, alignment: .leading)
+
             }
             .padding(.vertical)
             
             //                Colors and Counter
-            HStack {
-                VStack (alignment: .leading) {
-                    Text("Colors")
-                        .fontWeight(.semibold)
-                    HStack {
-                        ColorDotView(color: Color.white)
-                        ColorDotView(color: Color.black)
-                        ColorDotView(color: Color(#colorLiteral(red: 0.1803921569, green: 0.6352941176, blue: 0.6705882353, alpha: 1)))
-                    }
-                }
-                .frame(maxWidth: .infinity, alignment: .leading)
-                
-                HStack {
-                    //                        Minus Button
-                    Button(action: {}) {
-                        Image(systemName: "minus")
-                            .padding(.all, 8)
-                        
-                    }
-                    .frame(width: 30, height: 30)
-                    .overlay(RoundedCorner(radius: 50).stroke())
-                    .foregroundColor(.black)
-                    
-                    Text("1")
-                        .font(.title2)
-                        .fontWeight(.semibold)
-                        .padding(.horizontal, 8)
-                    
-                    //                        Plus Button
-                    Button(action: {}) {
-                        Image(systemName: "plus")
-                            .foregroundColor(.white)
-                            .padding(.all, 8)
-                            .background(Color("Primary"))
-                            .clipShape(Circle())
-                    }
-                }
-                
-            }
+
         }
         .padding()
         .padding(.top)

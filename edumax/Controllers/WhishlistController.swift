@@ -34,7 +34,7 @@ class WhishlistController: UIViewController {
             {
                 self.WishlistView.reloadSections(NSIndexSet(index: 0) as IndexSet)
             }, completion: { (finished:Bool) -> Void in
-            })
+        })
         
     }
     

@@ -8,10 +8,24 @@
 import SwiftUI
 
 struct CourseCard: View {
+    @State var checked = false;
+    
+    
     var course: CourseModel
     var wishlistStorage = WishlistStorage()
     
     let name:String = ""
+    
+    
+    func initialize() -> Void {
+        var courseFromWishlist = wishlistStorage.getCourseById(id: course._id);
+        if(courseFromWishlist == nil){
+            checked=false;
+        }else{
+            checked=true;
+        }
+        
+    }
     
     var body: some View {
         ZStack(alignment: .topTrailing) {
@@ -44,12 +58,15 @@ struct CourseCard: View {
             Button {
                 if(wishlistStorage.getCourseById(id:course._id) == nil){
                     wishlistStorage.save(course: course );
+                    
                 }else{
                     wishlistStorage.deleteById(id:course._id);
+                    
                 }
+                checked.toggle();
                 
             } label: {
-                if(wishlistStorage.getCourseById(id:course._id) == nil){
+                if(checked==false){
                     Image(systemName: "star")
                         .padding(10)
                         .foregroundColor(.white)
@@ -66,12 +83,12 @@ struct CourseCard: View {
                 }
                 
             }
-        }
+        }.onAppear(perform: initialize)
     }
 }
 
 struct CourseCard_Previews: PreviewProvider {
     static var previews: some View {
-        CourseCard(course: CourseModel(_id: "", title: "title", description: "", price: "80", image: "http://localhost:5001/uploads/courses/1.png"))
+        CourseCard(course: CourseModel(_id: "", title: "title", description: "", price: "80", image: "http://localhost:5001/uploads/courses/1.png",mentor: MentorModel(_id: "", firstName: "", lastName: "", email: "", avatar: "")))
     }
 }

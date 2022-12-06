@@ -36,7 +36,8 @@ final class WishlistStorage{
                     title: obj.value(forKey: "title") as! String,
                     description: obj.value(forKey: "desc") as! String,
                     price: obj.value(forKey: "price") as! String,
-                    image: obj.value(forKey: "image") as! String
+                    image: obj.value(forKey: "image") as! String,
+                    mentor: nil
                 );
                 list.append(course);
             }
