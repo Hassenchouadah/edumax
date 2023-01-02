@@ -64,6 +64,7 @@ class VerificationController: UIViewController {
                     email: self!.email,
                     onSuccess: {[weak self] (response) in
                         DispatchQueue.main.async {
+                            
                             self?.userStorage.save(user: response)
                             self?.performSegue(withIdentifier: "verifyToHome", sender: "")
                         }

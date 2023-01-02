@@ -14,6 +14,9 @@ class RegisterController: UIViewController {
     @IBOutlet weak var passwordInput: UITextField!
     @IBOutlet weak var confirmPasswordInput: UITextField!
     
+    @IBOutlet weak var firstNameInput: UITextField!
+    @IBOutlet weak var lastNameInput: UITextField!
+    
     var authService = AuthService()
     
     
@@ -38,6 +41,14 @@ class RegisterController: UIViewController {
     }
     
     @IBAction func registerAction(_ sender: UIButton) {
+        if(firstNameInput.text?.count == 0){
+            showAlertView(from: self, message: "Firstname is required")
+            return;
+        }
+        if(lastNameInput.text?.count == 0){
+            showAlertView(from: self, message: "Lastname is required")
+            return;
+        }
         if(emailInput.text?.count == 0){
             showAlertView(from: self, message: "email is required")
             return;
@@ -61,7 +72,7 @@ class RegisterController: UIViewController {
         }
         
         authService.register(
-            user: UserModel(_id: "", email: emailInput.text!, password: passwordInput.text!, phone: phoneInput.text!,avatar: "",verified: 0,token: ""),
+            user: UserModel(_id: "", email: emailInput.text!, password: passwordInput.text!, phone: phoneInput.text!,avatar: "",verified: 0,token: "",firstName: firstNameInput.text!,lastName: lastNameInput.text!,role: "user"),
             onSuccess: {[weak self] (response) in
                 DispatchQueue.main.async {
                     if(response.status==200){

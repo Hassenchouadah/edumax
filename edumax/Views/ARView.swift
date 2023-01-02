@@ -45,20 +45,7 @@ struct Home : View {
     @State var index = 0
 
     func loadScene(path:String) -> SceneView? {
-        /*let downloadedScenePath = "http://localhost:5001" + path;
-
-        let url =  URL(fileURLWithPath: downloadedScenePath);
-
-        do {
-            let scene = try SCNScene(url: url);
-            
-            return SceneView(
-                scene: scene,
-                options: [.autoenablesDefaultLighting,.allowsCameraControl]
-            )
-        } catch {
-            return nil;
-        }*/
+   
         
         
         let scene = SCNScene(named: path);

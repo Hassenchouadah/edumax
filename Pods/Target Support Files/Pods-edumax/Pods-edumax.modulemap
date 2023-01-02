@@ -1,0 +1,6 @@
+framework module Pods_edumax {
+  umbrella header "Pods-edumax-umbrella.h"
+
+  export *
+  module * { export * }
+}

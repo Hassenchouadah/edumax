@@ -99,7 +99,7 @@ extension View {
 
 struct DetailScreen_Previews: PreviewProvider {
     static var previews: some View {
-        CourseDetails(course:CourseModel(_id: "", title: "", description: "", price: "", image: "",mentor: MentorModel(_id: "", firstName: "", lastName: "", email: "", avatar: "")))
+        CourseDetails(course:CourseModel(_id: "", title: "", description: "", price: "", image: "",mentor: UserModel(_id: "", email: "", password: "", phone: "", avatar: "", verified: 0, token: "", firstName: "", lastName: "", role: "")))
     }
 }
 
@@ -137,7 +137,7 @@ struct DescriptionView: View {
             }
             //                Rating
             HStack (spacing: 4) {
-                ForEach(0 ..< 5) { item in
+                ForEach(0 ..< 3) { item in
                     Image("star").resizable()
                         .frame(width:20,height: 20)
                         .scaledToFit()

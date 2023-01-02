@@ -14,11 +14,11 @@ final class UserStorage{
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let managedContext = appDelegate.persistentContainer.viewContext
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Users")
-        var connectedUser = UserModel(_id: "", email: "", password: "", phone: "", avatar: "", verified: 0, token: "")
+        var connectedUser = UserModel(_id: "", email: "", password: "", phone: "", avatar: "", verified: 0, token: "",firstName: "",lastName: "",role: "")
         do {
             let result = try managedContext.fetch(fetchRequest)
             for obj in result {
-                connectedUser = UserModel(
+                /*connectedUser = UserModel(
                     _id: (obj.value(forKey: "id") as! String),
                     email: (obj.value(forKey: "email") as! String),
                     password: (obj.value(forKey: "password") as! String),
@@ -26,7 +26,18 @@ final class UserStorage{
                     avatar: (obj.value(forKey: "avatar") as! String),
                     verified: (obj.value(forKey: "verified") as! Int),
                     token: (obj.value(forKey: "token") as! String)
-                )
+                )*/
+                connectedUser = UserModel(
+                    _id: (obj.value(forKey: "id") as! String),
+                    email: (obj.value(forKey: "email") as! String),
+                    password: (obj.value(forKey: "password") as! String),
+                    phone: (obj.value(forKey: "phone") as! String),
+                    avatar: (obj.value(forKey: "avatar") as! String),
+                    verified: (obj.value(forKey: "verified") as! Int),
+                    token: (obj.value(forKey: "token") as! String),
+                    firstName: (obj.value(forKey: "firstName") as! String),
+                    lastName: (obj.value(forKey: "lastName") as! String),
+                    role: (obj.value(forKey: "role") as! String))
             }
             return connectedUser;
         } catch let error as NSError {
@@ -37,6 +48,8 @@ final class UserStorage{
     }
     
     func save(user:UserModel) -> Void {
+        print("user before save")
+        print(user)
         let appD = UIApplication.shared.delegate as! AppDelegate
         let PC = appD.persistentContainer
         let managedContext = PC.viewContext
@@ -50,6 +63,10 @@ final class UserStorage{
         object.setValue(user.avatar, forKey: "avatar")
         object.setValue(user.verified, forKey: "verified")
         object.setValue(user.token, forKey: "token")
+        
+        object.setValue(user.firstName, forKey: "firstName")
+        object.setValue(user.lastName, forKey: "lastName")
+        object.setValue(user.role, forKey: "role")
         
         
         do {

@@ -12,7 +12,7 @@ class HomeController: UIViewController {
     
     
     var categories = [CategoryModel]()
-    var mentors = [MentorModel]()
+    var mentors = [UserModel]()
     var promotions = [PromotionModel]()
     var courses = [CourseModel]()
     
@@ -77,7 +77,7 @@ class HomeController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        FullName.text = userStorage.getConnectedUser().email
+        FullName.text = userStorage.getConnectedUser().firstName
         avatarImg.load(url: URL(string: "http://localhost:5001\(userStorage.getConnectedUser().avatar)")!)
         PromotionView.delegate = self
         PromotionView.dataSource = self
@@ -91,12 +91,10 @@ class HomeController: UIViewController {
         coursesView.delegate = self
         coursesView.dataSource = self
         
-        
-        categoryService.getCategories(onSuccess: {[weak self] (response) in
+        promotionService.getPromotions(onSuccess: {[weak self] (response) in
             DispatchQueue.main.async {
-                self!.categories = response
-                self!.selectedCategory = response.first!._id
-                self!.categoryView.reloadData()
+                self!.promotions = response
+                self!.PromotionView.reloadData()
             }
         }, onError: {[weak self] (error) in
             DispatchQueue.main.async {
@@ -115,16 +113,21 @@ class HomeController: UIViewController {
             }
         })
         
-        promotionService.getPromotions(onSuccess: {[weak self] (response) in
+        categoryService.getCategories(onSuccess: {[weak self] (response) in
             DispatchQueue.main.async {
-                self!.promotions = response
-                self!.PromotionView.reloadData()
+                self!.categories = response
+                self!.selectedCategory = response.first!._id
+                self!.categoryView.reloadData()
             }
         }, onError: {[weak self] (error) in
             DispatchQueue.main.async {
                 self?.showAlertView(from: self, message: error.localizedDescription)
             }
         })
+        
+        
+        
+        
         
         courseService.getCourses(onSuccess: {[weak self] (response) in
             DispatchQueue.main.async {
@@ -150,12 +153,23 @@ class HomeController: UIViewController {
 
 extension HomeController :UICollectionViewDelegateFlowLayout, UICollectionViewDataSource{
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if(segue.identifier == "HomeToDetails"){
+            let destination  = segue.destination as! MentorDetailsController
+            destination.mentor = sender as! UserModel
+        }
+    }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView==coursesView{
             
             let vc = UIHostingController(rootView: CourseDetails(course: courses[indexPath.row] ));
             present(vc,animated: true);
             
+        }
+        if collectionView==mentorsView{
+            /*let vc = UIHostingController(rootView: MentorDetails( mentor: mentors[indexPath.row] ));
+            present(vc,animated: true);*/
+            performSegue(withIdentifier: "HomeToDetails", sender: mentors[indexPath.row])
         }
         if collectionView==categoryView {
             

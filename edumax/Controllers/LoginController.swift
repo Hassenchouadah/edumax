@@ -58,7 +58,6 @@ class LoginController: UIViewController {
                     if response.user?.verified==0{
                         self!.performSegue(withIdentifier: "loginToVerify", sender: response.user!)
                     }else{
-                        print(response.user?.token)
                         self!.userStorage.save(user: response.user!)
                         self!.performSegue(withIdentifier: "loginToHome", sender: "")
                     }

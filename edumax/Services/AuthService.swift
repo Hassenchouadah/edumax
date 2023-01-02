@@ -68,6 +68,8 @@ final class AuthService: AuthServiceProtocol {
     
     func register(user:UserModel,onSuccess: @escaping (BackendResponse) -> Void, onError: @escaping (Error) -> Void) {
         let parameters = [
+            "firstName":user.firstName,
+            "lastName":user.lastName,
             "email" : user.email,
             "phone" : user.phone,
             "password" : user.password,

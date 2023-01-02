@@ -18,7 +18,7 @@ final class CategoryService {
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.addValue("Bearer \(connectedUser.token)", forHTTPHeaderField: "authorization")
+        request.addValue("Bearer \(connectedUser.token!)", forHTTPHeaderField: "authorization")
         
         
         URLSession.shared.dataTask(with: request) { data, response, error in

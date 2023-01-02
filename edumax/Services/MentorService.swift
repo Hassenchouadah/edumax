@@ -11,14 +11,15 @@ final class MentorService {
     private var baseURL: String="http://localhost:5001"
     private var userStorage = UserStorage()
     
-    func getMentors(onSuccess: @escaping ([MentorModel]) -> Void, onError: @escaping (Error) -> Void) {
+    func getMentors(onSuccess: @escaping ([UserModel]) -> Void, onError: @escaping (Error) -> Void) {
         
         let connectedUser = userStorage.getConnectedUser()
         guard let url = URL(string: baseURL+"/api/mentors/") else { return }
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.addValue("Bearer \(connectedUser.token)", forHTTPHeaderField: "authorization")
+
+        request.addValue("Bearer \(connectedUser.token!)", forHTTPHeaderField: "authorization")
         
         
         URLSession.shared.dataTask(with: request) { data, response, error in
@@ -40,7 +41,7 @@ final class MentorService {
                 
                 
                 
-                let response = try decoder.decode([MentorModel].self, from: data)
+                let response = try decoder.decode([UserModel].self, from: data)
                 
                 
                 onSuccess(response)

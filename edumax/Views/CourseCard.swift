@@ -89,6 +89,6 @@ struct CourseCard: View {
 
 struct CourseCard_Previews: PreviewProvider {
     static var previews: some View {
-        CourseCard(course: CourseModel(_id: "", title: "title", description: "", price: "80", image: "http://localhost:5001/uploads/courses/1.png",mentor: MentorModel(_id: "", firstName: "", lastName: "", email: "", avatar: "")))
+        CourseCard(course: CourseModel(_id: "", title: "title", description: "", price: "80", image: "http://localhost:5001/uploads/courses/1.png",mentor: UserModel(_id: "", email: "", password: "", phone: "", avatar: "", verified: 0, token: "", firstName: "", lastName: "", role: "")))
     }
 }
