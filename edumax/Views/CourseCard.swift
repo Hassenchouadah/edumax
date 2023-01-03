@@ -30,7 +30,7 @@ struct CourseCard: View {
     var body: some View {
         ZStack(alignment: .topTrailing) {
             ZStack(alignment: .bottom) {
-                AsyncImage(url: URL(string: "http://localhost:5001\(course.image)")!,
+                AsyncImage(url: URL(string: "http://3.9.193.138:5001\(course.image)")!,
                                placeholder: { Text("Loading ...") },
                            image: { Image(uiImage: $0).resizable() })
                 .cornerRadius(20)
@@ -89,6 +89,6 @@ struct CourseCard: View {
 
 struct CourseCard_Previews: PreviewProvider {
     static var previews: some View {
-        CourseCard(course: CourseModel(_id: "", title: "title", description: "", price: "80", image: "http://localhost:5001/uploads/courses/1.png",mentor: UserModel(_id: "", email: "", password: "", phone: "", avatar: "", verified: 0, token: "", firstName: "", lastName: "", role: "")))
+        CourseCard(course: CourseModel(_id: "", title: "title", description: "", price: "80", image: "http://3.9.193.138:5001/uploads/courses/1.png",mentor: UserModel(_id: "", email: "", password: "", phone: "", avatar: "", verified: 0, token: "", firstName: "", lastName: "", role: "")))
     }
 }

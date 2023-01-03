@@ -85,7 +85,7 @@ extension WhishlistController :UICollectionViewDelegateFlowLayout, UICollectionV
         let coursePrice = contentView.viewWithTag(4) as! UILabel
         
         
-        courseImage.load(url: URL(string: "http://localhost:5001\(whishlist[indexPath.row].image)")!)
+        courseImage.load(url: URL(string: "http://3.9.193.138:5001\(whishlist[indexPath.row].image)")!)
         courseImage.layer.cornerRadius = 12
         
         courseTitle.text = whishlist[indexPath.row].title

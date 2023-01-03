@@ -33,7 +33,7 @@ struct CourseDetails: View {
                 Color("Bg")
                 ScrollView  {
                     
-                    AsyncImage(url: URL(string: "http://localhost:5001\(course.image)")!,
+                    AsyncImage(url: URL(string: "http://3.9.193.138:5001\(course.image)")!,
                                    placeholder: { Text("Loading ...") },
                                image: { Image(uiImage: $0).resizable() })
                     .frame(width:400,height: 380)
@@ -163,7 +163,7 @@ struct DescriptionView: View {
                     HStack(alignment: .top){
                         if(course.mentor != nil){
                             
-                            AsyncImage(url: URL(string: "http://localhost:5001\(course.mentor!.avatar)")!,
+                            AsyncImage(url: URL(string: "http://3.9.193.138:5001\(course.mentor!.avatar)")!,
                                            placeholder: { Text("Loading ...") },
                                        image: { Image(uiImage: $0).resizable() })
                             .frame(width:40,height: 40)

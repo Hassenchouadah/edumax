@@ -112,7 +112,7 @@ class ChatController: MessagesViewController,MessagesDataSource,MessagesLayoutDe
         
         title=friend.firstName+" "+friend.lastName
         
-        var request = URLRequest(url: URL(string: "http://localhost:5002")!)
+        var request = URLRequest(url: URL(string: "http://3.9.193.138:5002")!)
         request.timeoutInterval = 5
         socket = WebSocket(request: request)
         socket.delegate = self
@@ -281,7 +281,7 @@ class ChatController: MessagesViewController,MessagesDataSource,MessagesLayoutDe
     
     func configureAvatarView(_ avatarView: AvatarView, for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) {
         if message.sender.senderId == "friend" {
-            let avatarUrl = "http://localhost:5001\(self.friend.avatar)"
+            let avatarUrl = "http://3.9.193.138:5001\(self.friend.avatar)"
             avatarView.load(url: URL(string: avatarUrl)!)
         }
     }

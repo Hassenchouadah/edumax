@@ -51,7 +51,7 @@ struct MentorDetails: View {
                             
                             // going to apply shadows to look like neuromorphic feel...
                             
-                            AsyncImage(url: URL(string: "http://localhost:5001\(mentor.avatar)")!,
+                            AsyncImage(url: URL(string: "http://3.9.193.138:5001\(mentor.avatar)")!,
                                        placeholder: { Text("Loading ...") },
                                        image: { Image(uiImage: $0).resizable() })
                             .frame(width: 100, height: 100)

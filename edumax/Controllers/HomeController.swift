@@ -78,7 +78,7 @@ class HomeController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         FullName.text = userStorage.getConnectedUser().firstName
-        avatarImg.load(url: URL(string: "http://localhost:5001\(userStorage.getConnectedUser().avatar)")!)
+        avatarImg.load(url: URL(string: "http://3.9.193.138:5001\(userStorage.getConnectedUser().avatar)")!)
         PromotionView.delegate = self
         PromotionView.dataSource = self
         
@@ -201,7 +201,7 @@ extension HomeController :UICollectionViewDelegateFlowLayout, UICollectionViewDa
         let backgroundView = contentView.viewWithTag(5) as! UIImageView
         
         //backgroundView.image = UIImage(named: "mesh-706.png")
-        backgroundView.load(url: URL(string: "http://localhost:5001\(promotions[indexPath.row].image)")!)
+        backgroundView.load(url: URL(string: "http://3.9.193.138:5001\(promotions[indexPath.row].image)")!)
 
         //backgroundView.backgroundColor = .blue
         
@@ -229,7 +229,7 @@ extension HomeController :UICollectionViewDelegateFlowLayout, UICollectionViewDa
         
         mentorName.text = mentors[indexPath.row].firstName
         //mentorImage.image = UIImage(named: "profile.jpeg")
-        mentorImage.load(url: URL(string: "http://localhost:5001"+mentors[indexPath.row].avatar)! )
+        mentorImage.load(url: URL(string: "http://3.9.193.138:5001"+mentors[indexPath.row].avatar)! )
         mentorImage.layer.cornerRadius = mentorImage.bounds.width/2
         
         
@@ -276,7 +276,7 @@ extension HomeController :UICollectionViewDelegateFlowLayout, UICollectionViewDa
         let coursePrice = contentView.viewWithTag(4) as! UILabel
         
         
-        courseImage.load(url: URL(string: "http://localhost:5001\(courses[indexPath.row].image)")!)
+        courseImage.load(url: URL(string: "http://3.9.193.138:5001\(courses[indexPath.row].image)")!)
         courseImage.layer.cornerRadius = 12
         
         courseTitle.text = courses[indexPath.row].title

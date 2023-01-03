@@ -8,7 +8,7 @@
 import Foundation
 
 final class MentorService {
-    private var baseURL: String="http://localhost:5001"
+    private var baseURL: String="http://3.9.193.138:5001"
     private var userStorage = UserStorage()
     
     func getMentors(onSuccess: @escaping ([UserModel]) -> Void, onError: @escaping (Error) -> Void) {

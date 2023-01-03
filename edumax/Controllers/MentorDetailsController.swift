@@ -65,8 +65,8 @@ class MentorDetailsController: UIViewController {
         print(mentor)
         fetchCourses()
 
-        mentorImg.load(url: URL(string: "http://localhost:5001\(mentor.avatar)")!)
-        coverImg.load(url: URL(string: "http://localhost:5001\(mentor.avatar)")!)
+        mentorImg.load(url: URL(string: "http://3.9.193.138:5001\(mentor.avatar)")!)
+        coverImg.load(url: URL(string: "http://3.9.193.138:5001\(mentor.avatar)")!)
         fullnameText.text = mentor.firstName+" "+mentor.lastName
         
         coursesCollection.dataSource = self
@@ -105,7 +105,7 @@ extension MentorDetailsController :UICollectionViewDelegateFlowLayout, UICollect
         let backgroundView = contentView.viewWithTag(1) as! UIImageView
         
         //backgroundView.image = UIImage(named: "mesh-706.png")
-        backgroundView.load(url: URL(string: "http://localhost:5001\(courses[indexPath.row].image)")!)
+        backgroundView.load(url: URL(string: "http://3.9.193.138:5001\(courses[indexPath.row].image)")!)
 
         //backgroundView.backgroundColor = .blue
         

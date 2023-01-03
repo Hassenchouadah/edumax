@@ -15,7 +15,7 @@ struct CoursesView: View {
     
     
     func loadCourses() {
-        guard let url = URL(string: "http://localhost:5001/api/courses/") else {
+        guard let url = URL(string: "http://3.9.193.138:5001/api/courses/") else {
             print("Invalid URL")
             return
         }

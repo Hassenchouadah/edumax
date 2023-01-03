@@ -8,7 +8,7 @@
 import Foundation
 
 final class CategoryService {
-    private var baseURL: String="http://localhost:5001"
+    private var baseURL: String="http://3.9.193.138:5001"
     private var userStorage = UserStorage()
     
     func getCategories(onSuccess: @escaping ([CategoryModel]) -> Void, onError: @escaping (Error) -> Void) {

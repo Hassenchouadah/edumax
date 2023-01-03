@@ -9,7 +9,7 @@
 import Foundation
 
 final class MessageService {
-    private var baseURL: String="http://localhost:5001"
+    private var baseURL: String="http://3.9.193.138:5001"
     private var userStorage = UserStorage()
     
     func getMessages(friendId:String,onSuccess: @escaping ([chatResponse]) -> Void, onError: @escaping (Error) -> Void) {

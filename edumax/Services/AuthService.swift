@@ -18,7 +18,7 @@ import Foundation
 
 final class AuthService: AuthServiceProtocol {
     
-    private var baseURL: String="http://localhost:5001"
+    private var baseURL: String="http://3.9.193.138:5001"
     
     func login(email:String,password:String,onSuccess: @escaping (LoginResponse) -> Void, onError: @escaping (Error) -> Void) {
         
